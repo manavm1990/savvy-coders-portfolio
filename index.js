@@ -9,7 +9,6 @@ import * as state from "./store";
  */
 // The parameter st represents a piece of state
 function render(st = state.Home) {
-
   /**
    * Developer's Note: Since state.Links is static,
    * there is no reason to pass it in each time.
@@ -22,13 +21,15 @@ function render(st = state.Home) {
   ${Main(st)}
   ${Footer()}
 `;
+
+  const links = document.querySelectorAll("nav a, footer a");
+
+  links.forEach(link =>
+    link.addEventListener("click", event => {
+      event.preventDefault();
+      render(state[event.target.textContent]);
+    })
+  );
 }
 
 render();
-
-const links = document.querySelectorAll("nav a, footer a");
-
-links.forEach(link => link.addEventListener("click", event => {
-    event.preventDefault();
-    render(state[event.target.textContent]);
-  }));
