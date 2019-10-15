@@ -2,6 +2,10 @@
 import { Header, Nav, Main, Footer } from "./components";
 import * as state from "./store";
 
+// The uppercase "N" indicates that is a CONSTRUCTOR FUNCTION.
+import Navigo from "navigo";
+const router = new Navigo(location.origin);
+
 /**
  * Currently, #root div is empty.
  * We want to grab that #root div.
