@@ -19,7 +19,7 @@ function render(st = state.Home) {
   document.querySelector("#root").innerHTML = `
   ${Header(st)}
   ${Nav()}
-  ${Main()}
+  ${Main(st)}
   ${Footer()}
 `;
 }
