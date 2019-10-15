@@ -36,4 +36,8 @@ function render(st = state.Home) {
   );
 }
 
-render();
+router
+  // Developer's Note: ':page' can be whatever you want to name the key that comes into `params` Object Literal
+  .on(":page", params => render(state[params.page]))
+  .on("/", render())
+  .resolve();
