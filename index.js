@@ -41,7 +41,7 @@ router
       ]
     )
   )
-  .on("/", render())
+  .on("/", () => render())
   .resolve();
 
 axios
