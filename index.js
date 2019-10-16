@@ -46,4 +46,9 @@ router
 
 axios
   .get("https://jsonplaceholder.typicode.com/posts")
-  .then(response => console.log(response.data)).catch(err => console.log(err))
+  .then(response => {
+    console.log("state.blog.main is: ", state.Blog.main);
+    state.Blog.main = response.data;
+    console.log("state.blog.main is: ", state.Blog.main);
+  })
+  .catch(err => console.log(err));
