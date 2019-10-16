@@ -39,6 +39,11 @@ router
           .slice(1)
           .toLowerCase()}`
       ]
-    ))
+    )
+  )
   .on("/", render())
   .resolve();
+
+axios
+  .get("https://jsonplaceholder.typicode.com/posts")
+  .then(response => console.log(response.data)).catch(err => console.log(err))
