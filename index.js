@@ -4,6 +4,8 @@ import * as state from "./store";
 
 // The uppercase "N" indicates that is a CONSTRUCTOR FUNCTION.
 import Navigo from "navigo";
+import axios from "axios";
+
 const router = new Navigo(location.origin);
 
 /**
@@ -30,8 +32,6 @@ function render(st = state.Home) {
 }
 
 router
-  // Developer's Note: ':page' can be whatever you want to name the key that comes into `params` Object Literal
-  // TODO: Create a 404 page and route all 'bad routes' to that page.
   .on(":page", params =>
     render(
       state[
@@ -39,7 +39,6 @@ router
           .slice(1)
           .toLowerCase()}`
       ]
-    )
-  )
+    ))
   .on("/", render())
   .resolve();
