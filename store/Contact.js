@@ -21,7 +21,7 @@ export default {
 
         <div>
           <label for="msg">Enter your message:</label>
-          <textarea name="msg" id="msg" cols="30" rows="10"></textarea>
+          <textarea name="msg" id="msg" cols="30" rows="10" placeholder="Between 25 and 50 characters please."></textarea>
         </div>
 
         <input type="submit" value="Submit">
