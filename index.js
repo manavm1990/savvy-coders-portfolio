@@ -1,5 +1,6 @@
 import { Header, Nav, Main, Footer } from "./components";
 import * as state from "./store";
+import forms from "./forms";
 
 // import single thing into variable
 import router from "./router";
@@ -20,6 +21,10 @@ function render(st = state.Home) {
 `;
 
   router.updatePageLinks();
+
+  if(capitalize(router.lastRouteResolved().url.slice(1)) === "Contact") {
+    forms();
+}
 }
 
 router
