@@ -1,25 +1,17 @@
-// Object
 import { Header, Nav, Main, Footer } from "./components";
 import * as state from "./store";
+import forms from "./forms";
 
-// The uppercase "N" indicates that is a CONSTRUCTOR FUNCTION.
-import Navigo from "navigo";
+// import single thing into variable
+import router from "./router";
+
 import axios from "axios";
+import { capitalize } from "lodash";
 
-const router = new Navigo(location.origin);
-
-/**
- * Currently, #root div is empty.
- * We want to grab that #root div.
- * We want to assign the markup that is contained in the components as the innerHTML of root.
- */
-// The parameter st represents a piece of state
 function render(st = state.Home) {
   /**
    * Developer's Note: Since state.Links is static,
    * there is no reason to pass it in each time.
-   *
-   * Instead, 'Nav' can import 'Links' directly.
    */
   document.querySelector("#root").innerHTML = `
   ${Header(st)}
@@ -29,17 +21,17 @@ function render(st = state.Home) {
 `;
 
   router.updatePageLinks();
+
+  if(capitalize(router.lastRouteResolved().url.slice(1)) === "Contact") {
+    forms();
+  }
 }
 
 router
   .on(":page", params =>
     render(
-      state[
-        `${params.page.slice(0, 1).toUpperCase()}${params.page
-          .slice(1)
-          .toLowerCase()}`
-      ]
-    )
+      state[capitalize(params.page)]
+      )
   )
   .on("/", () => render())
   .resolve();
@@ -47,8 +39,8 @@ router
 axios
   .get("https://jsonplaceholder.typicode.com/posts")
   .then(response => {
-    console.log("state.blog.main is: ", state.Blog.main);
+    // console.log("state.blog.main is: ", state.Blog.main);
     state.Blog.main = response.data;
-    console.log("state.blog.main is: ", state.Blog.main);
+    // console.log("state.blog.main is: ", state.Blog.main);
   })
   .catch(err => console.log(err));

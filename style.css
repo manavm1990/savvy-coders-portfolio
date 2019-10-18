@@ -76,6 +76,10 @@ nav {
   min-height: 72px;
 }
 
+input, textarea {
+  border-radius: 3px;
+}
+
 footer {
   border-top: var(--border-primary);
   padding: calc(var(--base-spacing) * 2);
@@ -140,7 +144,6 @@ nav .fas {
   max-height: 420px;
 }
 
-/* Form */
 form,
 form div {
   display: flex;
@@ -234,4 +237,13 @@ input[type="submit"] {
   .is-shown--desktop {
     font-size: initial;
   }
+}
+
+/* JS Classes */
+.is-valid {
+  border: solid green thin;
+}
+
+.is-invalid {
+  border: solid red thin;
 }
