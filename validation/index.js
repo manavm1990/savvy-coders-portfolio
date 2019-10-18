@@ -1,5 +1,6 @@
 import contact from "../store/Contact";
 
+// Used for textarea
 const { validators } = contact;
 
 const customValidator = {
@@ -35,6 +36,7 @@ export default () => {
       const val = this.value;
       const patt = this.pattern;
 
+      // ternary
       patt
         ? updateValidationClasses(this, RegExp(patt).test(val))
         : updateValidationClasses(
