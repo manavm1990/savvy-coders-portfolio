@@ -5,17 +5,17 @@ export default {
         <div class="flex-container--desktop flex-row--desktop">
         <div>
             <label for="name">Name:</label>
-            <input type="text" name="name" id="name">
+            <input type="text" name="name" id="name" pattern="[a-zA-Z]+[\s][a-zA-Z]+ placeholder="First Last">
           </div>
 
           <div>
             <label for="email">Email:</label>
-            <input type="email" name="email" id="email">
+            <input type="email" name="email" id="email" pattern="[a-zA-Z\d]+[@][a-zA-Z\d]+[.][a-zA-Z\d]+" placeholder="you@somedomain.com">
           </div>
 
           <div>
             <label for="fone">Phone:</label>
-            <input type="tel" name="fone" id="fone">
+            <input type="tel" name="fone" id="fone" pattern="d{3}[-]d{3}[-]d{4}" placeholder="123-456-7890">
           </div>
         </div>
 
@@ -25,7 +25,6 @@ export default {
         </div>
 
         <input type="submit" value="Submit">
-
       </form>
   `
 };
