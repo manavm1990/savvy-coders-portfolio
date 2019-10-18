@@ -234,3 +234,12 @@ input[type="submit"] {
     font-size: initial;
   }
 }
+
+/* JS Classes */
+.is-validat {
+  box-shadow: 0 0 5px rgba(81, 255, 238, 1);
+}
+
+.is-invalid {
+  box-shadow: 0 0 5px rgba(255, 203, 238, 1);
+}
