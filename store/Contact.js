@@ -5,7 +5,7 @@ export default {
         <div class="flex-container--desktop flex-row--desktop">
         <div>
             <label for="name">Name:</label>
-            <input type="text" name="name" id="name" pattern="[a-zA-Z]+[\s][a-zA-Z]+ placeholder="First Last">
+            <input type="text" name="name" id="name" pattern="[a-zA-Z]+[\s][a-zA-Z]+" placeholder="First Last">
           </div>
 
           <div>
