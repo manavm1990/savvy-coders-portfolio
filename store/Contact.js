@@ -26,5 +26,11 @@ export default {
 
         <input type="submit" value="Submit">
       </form>
-  `
+  `,
+  validators: {
+    textarea: {
+      minLength: 25,
+      maxLength: 50
+    }
+  }
 };
