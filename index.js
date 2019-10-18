@@ -5,6 +5,7 @@ import * as state from "./store";
 import router from "./router";
 
 import axios from "axios";
+import { capitalize } from "lodash";
 
 function render(st = state.Home) {
   /**
@@ -24,11 +25,7 @@ function render(st = state.Home) {
 router
   .on(":page", params =>
     render(
-      state[
-        `${params.page.slice(0, 1).toUpperCase()}${params.page
-          .slice(1)
-          .toLowerCase()}`
-      ]
+      state[capitalize(params.page)]
     )
   )
   .on("/", () => render())
