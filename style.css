@@ -76,6 +76,10 @@ nav {
   min-height: 72px;
 }
 
+input, textarea {
+  border-radius: 3px;
+}
+
 footer {
   border-top: var(--border-primary);
   padding: calc(var(--base-spacing) * 2);
@@ -236,10 +240,10 @@ input[type="submit"] {
 }
 
 /* JS Classes */
-.is-validat {
-  box-shadow: 0 0 5px rgba(81, 255, 238, 1);
+.is-valid {
+  border: solid green thin;
 }
 
 .is-invalid {
-  box-shadow: 0 0 5px rgba(255, 203, 238, 1);
+  border: solid red thin;
 }
