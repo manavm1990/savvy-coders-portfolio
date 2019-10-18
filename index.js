@@ -24,14 +24,14 @@ function render(st = state.Home) {
 
   if(capitalize(router.lastRouteResolved().url.slice(1)) === "Contact") {
     forms();
-}
+  }
 }
 
 router
   .on(":page", params =>
     render(
       state[capitalize(params.page)]
-    )
+      )
   )
   .on("/", () => render())
   .resolve();
@@ -39,8 +39,8 @@ router
 axios
   .get("https://jsonplaceholder.typicode.com/posts")
   .then(response => {
-    console.log("state.blog.main is: ", state.Blog.main);
+    // console.log("state.blog.main is: ", state.Blog.main);
     state.Blog.main = response.data;
-    console.log("state.blog.main is: ", state.Blog.main);
+    // console.log("state.blog.main is: ", state.Blog.main);
   })
   .catch(err => console.log(err));
