@@ -4,6 +4,8 @@ import * as state from "./store";
 // import single thing into variable
 import router from "./router";
 
+import axios from "axios";
+
 function render(st = state.Home) {
   /**
    * Developer's Note: Since state.Links is static,
