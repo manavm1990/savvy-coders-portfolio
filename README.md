@@ -8,3 +8,5 @@ In order to grasp the intermediate concepts in this repo, you may want to first 
 4. [HTML Pattern Attribute](https://www.w3schools.com/tags/att_input_pattern.asp)
 5. [HTML Placeholder Attribute](https://www.w3schools.com/tags/att_input_placeholder.asp)
 6. [Ternary](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator)
+
+[Experiment with Regular Expressions!](https://regex101.com/) 
