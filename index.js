@@ -1,11 +1,8 @@
 import { Header, Nav, Main, Footer } from "./components";
 import * as state from "./store";
 
-// The uppercase "N" indicates that is a CONSTRUCTOR FUNCTION.
-import Navigo from "navigo";
-import axios from "axios";
-
-const router = new Navigo(location.origin);
+// import single thing into variable
+import router from "./router";
 
 function render(st = state.Home) {
   /**
