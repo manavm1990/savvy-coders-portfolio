@@ -28,7 +28,7 @@ export default {
       </form>
   `,
   validators: {
-    textarea: {
+    msg: {
       minLength: 25,
       maxLength: 50
     }

@@ -1,14 +1,14 @@
 import contact from "../store/Contact";
 
+import { capitalize } from "lodash";
+
 // Used for textarea
 const { validators } = contact;
 
 const customValidator = {
-  validateTextarea(
+  validateMsg(
     val,
-    {
-      textarea: { minLength, maxLength }
-    }
+    { minLength, maxLength }
   ) {
     if (val.length > minLength && val.length > maxLength) {
       return true;
@@ -36,13 +36,12 @@ export default () => {
       const val = this.value;
       const patt = this.pattern;
 
-      // ternary
-      patt
-        ? updateValidationClasses(this, RegExp(patt).test(val))
-        : updateValidationClasses(
-            this,
-            customValidator.validateTextarea(val, validators)
-          );
+      if (patt) {
+        updateValidationClasses(this, RegExp(patt).test(val))
+      } else {
+        const id = input.id;
+        updateValidationClasses(this, customValidator[`validate${capitalize(id)}`](val, validators[id]))
+      }
     });
   });
 };
