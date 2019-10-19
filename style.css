@@ -77,10 +77,23 @@ nav {
 }
 
 input,
+textarea,
+button {
+  border-radius: 3px;
+}
+
+input,
 textarea {
   border: solid thin black;
-  border-radius: 3px;
   max-width: 80vw;
+}
+
+button {
+  background: var(--primary);
+  color: white;
+  margin: var(--base-spacing);
+  min-width: 48px;
+  padding: var(--base-spacing);
 }
 
 footer {
