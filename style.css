@@ -15,6 +15,11 @@
   --border-secondary: solid var(--secondary-variant) 3px;
 }
 
+figure,
+img {
+  max-width: 100%;
+}
+
 body {
   font-family: "Poppins", sans-serif;
 }
@@ -182,6 +187,16 @@ input[type="submit"] {
   min-height: calc(var(--base-spacing) * 6);
   max-width: calc(var(--base-spacing) * 12);
   text-align: center;
+}
+
+.fotos {
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: repeat(3, 320px);
+  grid-template-rows: repeat(5, 550px);
+  justify-content: center;
+  margin: 0 auto;
+  width: 80vw;
 }
 
 /* This should apply for tablets and above! */
