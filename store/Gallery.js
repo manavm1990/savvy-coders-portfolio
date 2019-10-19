@@ -1,4 +1,4 @@
 export default {
-  heading: "GAllery page",
+  heading: "Gallery!",
   main: "<button>Add Picture!</button>"
 };
