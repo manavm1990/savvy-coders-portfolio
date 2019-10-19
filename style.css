@@ -76,8 +76,11 @@ nav {
   min-height: 72px;
 }
 
-input, textarea {
+input,
+textarea {
+  border: solid thin black;
   border-radius: 3px;
+  max-width: 80vw;
 }
 
 footer {
@@ -152,12 +155,6 @@ form div {
 
 form {
   padding: var(--base-spacing);
-}
-
-input,
-textarea {
-  border: solid thin black;
-  max-width: 80vw;
 }
 
 form div {
