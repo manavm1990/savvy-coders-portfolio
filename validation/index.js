@@ -10,7 +10,7 @@ const customValidator = {
     val,
     { minLength, maxLength }
   ) {
-    if (val.length > minLength && val.length > maxLength) {
+    if (val.length > minLength && val.length < maxLength) {
       return true;
     }
 
