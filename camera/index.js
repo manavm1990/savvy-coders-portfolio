@@ -75,7 +75,5 @@ export default st => {
             closingDivI
           )}`
         : st.main.replace(`<p>No photos yet!</p>`, figHTML);
-
-    console.log(st.main);
   });
 };
