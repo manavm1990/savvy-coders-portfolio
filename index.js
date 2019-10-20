@@ -1,6 +1,8 @@
 import { Header, Nav, Main, Footer } from "./components";
 import * as state from "./store";
+
 import validate from "./validation";
+import camera from "./camera";
 
 // import single thing into variable
 import router from "./router";
@@ -24,6 +26,11 @@ function render(st = state.Home) {
 
   if (capitalize(router.lastRouteResolved().url.slice(1)) === "Contact") {
     validate(st);
+  }
+
+  if (capitalize(router.lastRouteResolved().url.slice(1)) === "Gallery") {
+    const results = camera();
+    console.log(results);
   }
 }
 
