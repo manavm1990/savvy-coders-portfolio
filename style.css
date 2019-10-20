@@ -46,7 +46,7 @@ h2 {
   margin: 0;
 }
 
-img {
+header img {
   border-radius: 50%;
   box-shadow: calc(var(--base-spacing) * 0.5) var(--base-spacing)
     var(--base-spacing) black;
