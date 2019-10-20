@@ -41,27 +41,20 @@ export default st => {
     // This is what actually takes the picture from the webcam
     canvas.getContext("2d").drawImage(video, 0, 0, canvas.width, canvas.height);
 
-    // We just use <canvas> to capture image data
-    const webp = canvas.toDataURL("image/webp");
+    toggleModal(modal);
 
-    // Grab `.fotos`
-    const fotos = document.querySelector(".fotos");
+    // TODO: Build template literal for figure and img...
+    const figHTML = `
+      <figure>
+        <!-- TODO: Add to modal 👆🏾 to ask for alt tag info. -->
+        <!-- TODO: Avoid using 'webp' for usage on Safari/iOS Browser. (https://caniuse.com/#search=webp) -->
+        <img src="${canvas.toDataURL('image/webp')}" alt="" />
 
-    // Remove <p> if it's there
-    const fotosP = fotos.querySelector("p");
-    if (fotosP) {
-      fotosP.remove();
-    }
+        <!-- TODO: Add <figcaption>. (use modal 👆🏾) -->
+      </figure>
+    `;
 
-    // Create figure and img tags with `webp` as `"src"`
-    const figElem = document.createElement("figure");
-    const imgElem = document.createElement("img");
-
-    imgElem.src = webp;
-
-    // Developer's Note: ParentNode.append() has no return value, whereas Node.appendChild() returns the appended Node object. (https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/append)
-    fotos.append(figElem.appendChild(imgElem));
-
-    toggleModal();
+    // Remove <p> from st.main
+    st.main = st.main.replace(`<p>No photos yet!</p>`, figHTML);
   });
 };
