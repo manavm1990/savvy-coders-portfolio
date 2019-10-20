@@ -29,7 +29,7 @@ function render(st = state.Home) {
   }
 
   if (capitalize(router.lastRouteResolved().url.slice(1)) === "Gallery") {
-      const mainProxy = new Proxy(st, {
+    const mainProxy = new Proxy(st, {
       set(st, main, markup) {
         st[main] = markup;
         render(st);

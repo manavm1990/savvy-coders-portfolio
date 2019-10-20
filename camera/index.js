@@ -43,7 +43,6 @@ export default st => {
 
     toggleModal(modal);
 
-    // TODO: Build template literal for figure and img...
     const figHTML = `
       <figure>
         <!-- TODO: Add to modal 👆🏾 to ask for alt tag info. -->
