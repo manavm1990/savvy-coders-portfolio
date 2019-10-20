@@ -29,6 +29,7 @@ function render(st = state.Home) {
   }
 
   if (capitalize(router.lastRouteResolved().url.slice(1)) === "Gallery") {
+    // TODO: Avoid 'external' state mutations - SINGLE SOURCE OF TRUTH.
     camera(st);
   }
 }
