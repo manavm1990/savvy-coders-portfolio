@@ -1,19 +1,18 @@
+function toggleModal(modal) {
+  modal.classList.toggle("is-hiding");
+  modal.classList.toggle("is-showing");
+}
+
 export default st => {
   const addPicBtn = document.querySelector("#add-pic");
-
-  const canvas = document.querySelector("canvas");
-
   const modal = document.querySelector("#modal");
   const video = document.querySelector("video");
-  const takePicBtn = document.querySelector("#take-pic");
 
-  function toggleModal() {
-    modal.classList.toggle("is-hiding");
-    modal.classList.toggle("is-showing");
-  }
+  const takePicBtn = document.querySelector("#take-pic");
+  const canvas = document.querySelector("canvas");
 
   addPicBtn.addEventListener("click", () => {
-    toggleModal();
+    toggleModal(modal);
 
     /**
      * `navigator` represents the browser.
