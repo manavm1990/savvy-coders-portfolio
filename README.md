@@ -11,3 +11,10 @@ In order to grasp the intermediate concepts in this repo, you may want to first 
 7. [Navigo](https://github.com/krasimir/navigo)
 
 [Experiment with Regular Expressions!](https://regex101.com/) 
+
+# WebRTC Webcam and Proxies! (Bonus Lesson)
+
+In order to grasp the intermediate-advanced concepts in this repo, you may want to first peruse:
+
+1. [WebRTC Webcam](https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API/Taking_still_photos)
+2. [Proxies - `set()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy/handler/set)
