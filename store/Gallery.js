@@ -1,6 +1,9 @@
 export default {
   heading: "Gallery!",
   main: `
+  <!-- Just a holding spot to capture the image - not to be seen. -->
+  <canvas></canvas>
+
   <div id="modal" class="is-hiding">
     <video></video>
     <button class="fas fa-camera-retro"></button>
