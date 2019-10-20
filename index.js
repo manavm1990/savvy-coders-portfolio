@@ -23,16 +23,12 @@ function render(st = state.Home) {
   router.updatePageLinks();
 
   if (capitalize(router.lastRouteResolved().url.slice(1)) === "Contact") {
-    validate(state.Contact);
+    validate(st);
   }
 }
 
 router
-  .on(":page", params =>
-    render(
-      state[capitalize(params.page)]
-      )
-  )
+  .on(":page", params => render(state[capitalize(params.page)]))
   .on("/", () => render())
   .resolve();
 
