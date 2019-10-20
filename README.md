@@ -18,3 +18,5 @@ In order to grasp the intermediate-advanced concepts in this repo, you may want 
 
 1. [WebRTC Webcam](https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API/Taking_still_photos)
 2. [Proxies - `set()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy/handler/set)
+3. [Ternary](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator)
+4. [String Prototype Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/prototype)
