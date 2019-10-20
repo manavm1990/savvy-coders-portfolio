@@ -22,8 +22,8 @@ function render(st = state.Home) {
 
   router.updatePageLinks();
 
-  if(capitalize(router.lastRouteResolved().url.slice(1)) === "Contact") {
-    validate();
+  if (capitalize(router.lastRouteResolved().url.slice(1)) === "Contact") {
+    validate(st);
   }
 }
 
