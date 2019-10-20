@@ -3,14 +3,15 @@ export default {
   main: `
   <!-- Just a holding spot to capture the image - not to be seen. -->
   <canvas></canvas>
-
   <div id="modal" class="is-hiding">
     <video></video>
-    <button class="fas fa-camera-retro"></button>
+    <button class="fas fa-camera-retro" id="take-pic"></button>
   </div>
   <button id="add-pic">Add Photo</button>
     <div class="fotos">
       <p>No photos yet!</p>
+        <img src="" id ="test-img" />
+
     </div>
   `
 };

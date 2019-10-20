@@ -1,13 +1,19 @@
-import gallery from "../store/Gallery";
-
 export default () => {
   const addPicBtn = document.querySelector("#add-pic");
-  const video = document.querySelector("video");
+
+  const canvas = document.querySelector("canvas");
 
   const modal = document.querySelector("#modal");
-  addPicBtn.addEventListener("click", () => {
+  const video = document.querySelector("video");
+  const takePicBtn = document.querySelector("#take-pic");
+
+  function toggleModal() {
     modal.classList.toggle("is-hiding");
     modal.classList.toggle("is-showing");
+  }
+
+  addPicBtn.addEventListener("click", () => {
+    toggleModal();
 
     /**
      * `navigator` represents the browser.
@@ -23,11 +29,20 @@ export default () => {
 
         // Start playing to see something! 😃
         video.play();
-
-        return "got that spit!";
       })
       .catch(function(err) {
         console.log("An error occurred: " + err);
       });
+  });
+
+  takePicBtn.addEventListener("click", () => {
+
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+    canvas.getContext("2d").drawImage(video, 0, 0, canvas.width, canvas.height);
+    const test = canvas.toDataURL("image/webp");
+    document.querySelector("#test-img").src = test;
+
+    toggleModal();
   });
 };
