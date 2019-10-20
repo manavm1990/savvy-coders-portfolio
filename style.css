@@ -16,7 +16,8 @@
 }
 
 figure,
-img {
+img,
+video {
   max-width: 100%;
 }
 
@@ -193,6 +194,7 @@ canvas {
   display: none;
 }
 
+/* TODO{vanessa.kratohvil}: Add responsive styles here! */
 .fotos {
   display: grid;
   grid-gap: 5px;
