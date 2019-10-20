@@ -1,9 +1,4 @@
-import contact from "../store/Contact";
-
 import { capitalize } from "lodash";
-
-// Used for textarea
-const { validators } = contact;
 
 const customValidator = {
   validateMsg(
@@ -28,7 +23,7 @@ function updateValidationClasses(el, isValid) {
   }
 }
 
-export default () => {
+export default (st) => {
   const inputs = document.querySelectorAll("input[id], textarea");
 
   inputs.forEach(input => {
@@ -40,7 +35,7 @@ export default () => {
         updateValidationClasses(this, RegExp(patt).test(val))
       } else {
         const id = input.id;
-        updateValidationClasses(this, customValidator[`validate${capitalize(id)}`](val, validators[id]))
+        updateValidationClasses(this, customValidator[`validate${capitalize(id)}`](val, st.validators[id]))
       }
     });
   });
