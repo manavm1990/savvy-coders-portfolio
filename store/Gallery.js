@@ -10,8 +10,6 @@ export default {
   <button id="add-pic">Add Photo</button>
     <div class="fotos">
       <p>No photos yet!</p>
-        <img src="" id ="test-img" />
-
     </div>
   `
 };

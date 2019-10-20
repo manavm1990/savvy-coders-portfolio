@@ -29,8 +29,7 @@ function render(st = state.Home) {
   }
 
   if (capitalize(router.lastRouteResolved().url.slice(1)) === "Gallery") {
-    const results = camera();
-    console.log(results);
+    camera(st);
   }
 }
 
