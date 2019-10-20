@@ -28,11 +28,7 @@ function render(st = state.Home) {
 }
 
 router
-  .on(":page", params =>
-    render(
-      state[capitalize(params.page)]
-      )
-  )
+  .on(":page", params => render(state[capitalize(params.page)]))
   .on("/", () => render())
   .resolve();
 
