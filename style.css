@@ -16,7 +16,8 @@
 }
 
 figure,
-img {
+img,
+video {
   max-width: 100%;
 }
 
@@ -46,7 +47,7 @@ h2 {
   margin: 0;
 }
 
-img {
+header img {
   border-radius: 50%;
   box-shadow: calc(var(--base-spacing) * 0.5) var(--base-spacing)
     var(--base-spacing) black;
@@ -93,13 +94,13 @@ textarea {
   max-width: 80vw;
 }
 
-button {
+/* button {
   background: var(--primary);
   color: white;
   margin: var(--base-spacing);
   min-width: 48px;
   padding: var(--base-spacing);
-}
+} */
 
 footer {
   border-top: var(--border-primary);
@@ -189,6 +190,11 @@ input[type="submit"] {
   text-align: center;
 }
 
+canvas {
+  display: none;
+}
+
+/* TODO{vanessa.kratohvil}: Add responsive styles here! */
 .fotos {
   display: grid;
   grid-gap: 5px;
@@ -197,6 +203,42 @@ input[type="submit"] {
   justify-content: center;
   margin: 0 auto;
   width: 80vw;
+}
+
+#modal {
+  background: black;
+  display: flex;
+  flex-direction: column;
+  height: 80vw;
+  padding: calc(var(--base-spacing) * 2.5);
+  position: absolute;
+  transition: transform 0.2s ease-in-out;
+  width: 80vw;
+}
+
+#modal button {
+  background: var(--primary-variant);
+  color: white;
+  margin-left: auto;
+  margin-top: auto;
+  max-width: 48px;
+  transform: translateX(calc(var(--base-spacing) * 2.5 * (-1)));
+}
+
+.is-valid {
+  border: solid green thin;
+}
+
+.is-invalid {
+  border: solid red thin;
+}
+
+.is-hiding {
+  transform: translateX(-100vw) translateY(10vh);
+}
+
+.is-showing {
+  transform: translateX(10vw) translateY(10vh);
 }
 
 /* This should apply for tablets and above! */
@@ -262,13 +304,18 @@ input[type="submit"] {
   .is-shown--desktop {
     font-size: initial;
   }
-}
 
-/* JS Classes */
-.is-valid {
-  border: solid green thin;
-}
+  #modal {
+    height: 550px;
+    width: 960px;
+  }
 
-.is-invalid {
-  border: solid red thin;
+  .is-hiding {
+    transform: translateX(-100vw) translateY(calc((100vh - 550px) / 2));
+  }
+
+  .is-showing {
+    transform: translateX(calc((100vw - 958px) / 2))
+      translateY(calc((100vh - 550px) / 2));
+  }
 }
