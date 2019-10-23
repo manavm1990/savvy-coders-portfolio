@@ -1,1 +1,1 @@
-export default ["Home", "About", "Nick", "Blog", "Vanessa"];
+export default ["Home", "About", "Contact", "Blog", "Gallery"];
