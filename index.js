@@ -48,8 +48,17 @@ router
 axios
   .get("https://jsonplaceholder.typicode.com/posts")
   .then(response => {
-    // console.log("state.blog.main is: ", state.Blog.main);
-    state.Blog.main = response.data;
-    // console.log("state.blog.main is: ", state.Blog.main);
+    state.Blog.posts = [];
+
+    // 'response.data' is an Array of 'Post' Objects
+    response.data.forEach(post => state.Blog.posts.push(post));
+
+    // If there was a requested route (e.g. /blog, /contact, /about), then the 'params' property will exist.
+    if (
+      router.lastRouteResolved().params &&
+      router.lastRouteResolved().params.page === "Blog"
+    ) {
+      render(state.Blog);
+    }
   })
   .catch(err => console.log(err));

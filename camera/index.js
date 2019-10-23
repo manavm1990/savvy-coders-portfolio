@@ -43,36 +43,6 @@ export default st => {
 
     toggleModal(modal);
 
-    const figHTML = `
-      <figure>
-        <!-- TODO: Add to modal 👆🏾 to ask for alt tag info. -->
-        <!-- TODO: Avoid using 'webp' for usage on Safari/iOS Browser. (https://caniuse.com/#search=webp) -->
-        <img src="${canvas.toDataURL("image/webp")}" alt="" />
-
-        <!-- TODO: Add <figcaption>. (use modal 👆🏾) -->
-      </figure>
-    `;
-
-    // Where is the closing <div> tag in st.main markup?
-    const closingDivI = st.main.lastIndexOf("</div>");
-
-    /**
-     * We need to replace the value of st.main -
-     * but do we replace the 'starter' `<p>` or just append after an existing `</figure>`? 🤔
-     */
-    st.main =
-      // The indexOf() method returns the first index at which a given element can be found in the array, or -1 if it is not present. (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf)
-      st.main.indexOf(`<p>No photos yet!</p>`) === -1
-        ?
-
-        /**
-         * `slice` from beginning of the markup until wherever `closingDivI` is 👆🏾.
-         * Right there, toss in the `figHTML` and after that,
-         * whatever was already there in the markup.
-         */
-        `${st.main.slice(0, closingDivI)}${figHTML}${st.main.slice(
-            closingDivI
-          )}`
-        : st.main.replace(`<p>No photos yet!</p>`, figHTML);
+    st.pics.push(canvas.toDataURL("image/webp"))
   });
 };

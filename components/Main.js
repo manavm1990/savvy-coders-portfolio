@@ -1,5 +1,8 @@
-export default (st) => `<main>
-      ${st.main}
-    </main>
+import * as pages from "./pages";
+
+export default (st) => `
+<main>
+  ${pages[st.page](st)}
+</main>
 `;
 

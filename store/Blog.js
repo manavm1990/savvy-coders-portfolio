@@ -1,4 +1,10 @@
 export default {
   heading: "Blog Page",
-  main: "<p>Fetching Posts...</p>"
+  page: "Blog",
+  posts: [
+    {
+      title: "Fetching Posts!",
+      body: "Please stand by...or ✅ back!"
+    }
+  ]
 };

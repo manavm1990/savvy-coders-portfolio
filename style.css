@@ -41,12 +41,16 @@ h3 {
   font-size: 1.953em;
 }
 
-a,
 p,
+a,
 label,
 input {
   font-size: 1.563em;
   line-height: 1.44;
+}
+
+nav a {
+  font-size: 1.25em;
 }
 
 input {
@@ -61,6 +65,16 @@ video {
 
 section {
   padding: 2.4rem;
+}
+
+article {
+  margin: 0 auto;
+  max-width: 960px;
+  padding: 0 1.2rem;
+}
+
+article:first-child {
+  margin-top: 1.2rem;
 }
 
 header,
