@@ -310,6 +310,42 @@ canvas {
   .fotos figure {
     margin: 0;
   }
+
+  .flex-container--tablet {
+    display: flex;
+  }
+
+  .flex-row--tablet {
+    flex-direction: row;
+  }
+
+  form,
+  form .flex-container--tablet {
+    max-width: 960px;
+  }
+
+  form .flex-container--tablet {
+    width: 80vw;
+  }
+
+  form .flex-container--tablet div {
+    margin: 0 0.8rem;
+
+    /* 1/3 of total PARENT width. */
+    width: 33%;
+  }
+
+  form .flex-container--tablet div:first-child {
+    margin-left: 0;
+  }
+
+  form .flex-container--tablet div:last-child {
+    margin-right: 0;
+  }
+
+  textarea {
+    max-width: 700px;
+  }
 }
 
 /* This should apply for desktops and above. */
