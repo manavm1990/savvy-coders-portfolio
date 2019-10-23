@@ -41,12 +41,16 @@ h3 {
   font-size: 1.953em;
 }
 
-a,
 p,
+a,
 label,
 input {
   font-size: 1.563em;
   line-height: 1.44;
+}
+
+nav a {
+  font-size: 1.25em;
 }
 
 input {
