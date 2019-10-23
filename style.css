@@ -1,7 +1,7 @@
 /* This could also just be 'html' selector.
   More info here: https://stackoverflow.com/questions/15899615/whats-the-difference-between-css3s-root-pseudo-class-and-html
   */
-:root {
+html {
   --primary: #6200ee;
   --primary-variant: #3700b3;
   --secondary: #03dac6;
@@ -10,9 +10,47 @@
   --error: #b00020;
   --primary-text: #fff;
   --secondary-text: #000;
-  --base-spacing: 8px;
   --border-primary: solid var(--primary-variant) 3px;
   --border-secondary: solid var(--secondary-variant) 3px;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-size: 10px;
+}
+
+h1,
+h2,
+h3 {
+  margin: 2.75rem 0 1rem;
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 3.052em;
+  text-align: center;
+}
+
+h2 {
+  font-size: 2.441em;
+}
+
+h3 {
+  font-size: 1.953em;
+}
+
+a,
+p,
+label,
+input {
+  font-size: 1.563em;
+  line-height: 1.44;
+}
+
+input {
+  padding: 3px;
 }
 
 figure,
@@ -21,12 +59,8 @@ video {
   max-width: 100%;
 }
 
-body {
-  font-family: "Poppins", sans-serif;
-}
-
 section {
-  padding: calc(var(--base-spacing) * 3);
+  padding: 2.4rem;
 }
 
 header,
@@ -37,9 +71,10 @@ footer {
 }
 
 header {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  padding: 0.8rem;
 }
 
 figure,
@@ -49,12 +84,8 @@ h2 {
 
 header img {
   border-radius: 50%;
-  box-shadow: calc(var(--base-spacing) * 0.5) var(--base-spacing)
-    var(--base-spacing) black;
-}
-
-h1 {
-  text-align: center;
+  box-shadow: 0.4rem 0.4rem 0.4rem black;
+  margin-bottom: 0.8rem;
 }
 
 ul {
@@ -67,7 +98,7 @@ nav ul {
 }
 
 nav li {
-  padding: var(--base-spacing) 0;
+  padding: 0.8rem 0;
 }
 
 nav,
@@ -79,7 +110,7 @@ section:nth-of-type(even) {
 nav {
   border-top: var(--border-secondary);
   border-bottom: var(--border-secondary);
-  min-height: 72px;
+  min-height: 4.8rem;
 }
 
 input,
@@ -94,17 +125,9 @@ textarea {
   max-width: 80vw;
 }
 
-/* button {
-  background: var(--primary);
-  color: white;
-  margin: var(--base-spacing);
-  min-width: 48px;
-  padding: var(--base-spacing);
-} */
-
 footer {
   border-top: var(--border-primary);
-  padding: calc(var(--base-spacing) * 2);
+  padding: 1.6rem;
 }
 
 footer a {
@@ -127,8 +150,8 @@ nav a,
 
 .hero a,
 .read-more-btn {
-  border-radius: var(--base-spacing);
-  padding: var(--base-spacing);
+  border-radius: 3px;
+  padding: 0.8rem;
 }
 
 .hero a {
@@ -138,17 +161,17 @@ nav a,
 .read-more-btn {
   background: white;
   display: inline-block;
-  margin: var(--base-spacing) 0;
+  margin: 0.8rem 0;
 }
 
 .fas {
-  font-size: 48px;
+  font-size: 4.8em;
 }
 
 nav .fas {
-  margin: var(--base-spacing);
+  margin: 0.8rem;
   position: absolute;
-  transform: translateX(calc(100vw - var(--base-spacing) * 10));
+  transform: translateX(calc(100vw - 4.8rem));
 }
 
 .is-hidden--mobile {
@@ -173,20 +196,20 @@ form div {
 }
 
 form {
-  padding: var(--base-spacing);
+  padding: 0.8rem;
 }
 
 form div {
-  margin: var(--base-spacing);
+  margin: 0.4rem 0;
 }
 
 input[type="submit"] {
   background: var(--secondary);
-  border-radius: var(--base-spacing);
+  border-radius: 3px;
   display: inline-block;
-  margin: var(--base-spacing) 0;
-  min-height: calc(var(--base-spacing) * 6);
-  max-width: calc(var(--base-spacing) * 12);
+  margin: 0.8rem 0;
+  min-height: 2.4rem;
+  max-width: 4.8rem;
   text-align: center;
 }
 
@@ -194,23 +217,23 @@ canvas {
   display: none;
 }
 
-/* TODO{vanessa.kratohvil}: Add responsive styles here! */
 .fotos {
-  display: grid;
-  grid-gap: 5px;
-  grid-template-columns: repeat(3, 320px);
-  grid-template-rows: repeat(5, 550px);
-  justify-content: center;
+  display: flex;
+  flex-direction: column;
   margin: 0 auto;
   width: 80vw;
+}
+
+.fotos figure {
+  margin: 0.8rem 0;
 }
 
 #modal {
   background: black;
   display: flex;
   flex-direction: column;
-  height: 80vw;
-  padding: calc(var(--base-spacing) * 2.5);
+  padding: 1.2rem;
+  padding-bottom: 2.4rem;
   position: absolute;
   transition: transform 0.2s ease-in-out;
   width: 80vw;
@@ -222,7 +245,7 @@ canvas {
   margin-left: auto;
   margin-top: auto;
   max-width: 48px;
-  transform: translateX(calc(var(--base-spacing) * 2.5 * (-1)));
+  transform: translateY(1.2rem);
 }
 
 .is-valid {
@@ -238,7 +261,8 @@ canvas {
 }
 
 .is-showing {
-  transform: translateX(10vw) translateY(10vh);
+  margin-bottom: 1.6rem;
+  transform: translateX(10vw);
 }
 
 /* This should apply for tablets and above! */
@@ -250,7 +274,7 @@ canvas {
 
   .read-more-btn {
     align-self: center;
-    max-width: calc(var(--base-spacing) * 15);
+    max-width: 30.25rem;
     text-align: center;
   }
 
@@ -262,22 +286,40 @@ canvas {
     font-size: 0;
     height: 0;
   }
+
+  .fotos {
+    display: grid;
+    grid-gap: 0.8rem;
+    grid-template-columns: repeat(2, 50fr);
+  }
+
+  .fotos figure {
+    margin: 0;
+  }
 }
 
 /* This should apply for desktops and above. */
 @media screen and (min-width: 1024px) {
   header {
     flex-direction: row;
-    padding: calc(var(--base-spacing) * 2);
+    padding: 1.6rem;
   }
 
   header figure {
-    margin-right: calc(var(--base-spacing) * 2);
+    margin-right: 1.6rem;
+  }
+
+  nav {
+    min-height: 5.8rem;
   }
 
   nav ul {
     display: flex;
     justify-content: space-around;
+  }
+
+  section {
+    padding-bottom: 3px;
   }
 
   section p {
@@ -286,6 +328,10 @@ canvas {
 
   .hero {
     height: 60vh;
+  }
+
+  .fotos {
+    grid-template-columns: repeat(3, 33fr);
   }
 
   .flex-container--desktop {
@@ -305,17 +351,11 @@ canvas {
     font-size: initial;
   }
 
-  #modal {
-    height: 550px;
-    width: 960px;
-  }
-
   .is-hiding {
-    transform: translateX(-100vw) translateY(calc((100vh - 550px) / 2));
+    transform: translateX(-100vw);
   }
 
   .is-showing {
-    transform: translateX(calc((100vw - 958px) / 2))
-      translateY(calc((100vh - 550px) / 2));
+    transform: translateX(10vw);
   }
 }
