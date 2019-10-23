@@ -3,17 +3,17 @@ export default () => `
     <div class="flex-container--tablet flex-row--tablet">
       <div>
         <label for="name">Name:</label>
-        <input type="text" name="name" id="name">
+        <input type="text" name="name" id="name" pattern="[a-zA-Z]+[ ]+[a-zA-Z]+" placeholder="First Last">
       </div>
 
       <div>
         <label for="email">Email:</label>
-        <input type="email" name="email" id="email">
+        <input type="email" name="email" id="email" pattern="[a-zA-Z0-9]+[@][a-zA-Z0-9]+[.][a-zA-Z0-9]+" placeholder="you@somedomain.com">
       </div>
 
       <div>
         <label for="fone">Phone:</label>
-        <input type="tel" name="fone" id="fone">
+        <input type="tel" name="fone" id="fone" pattern="[0-9]{3}[-][0-9]{3}[-][0-9]{4}" placeholder="123-456-7890">
       </div>
     </div>
 
