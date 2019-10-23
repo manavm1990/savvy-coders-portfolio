@@ -1,5 +1,4 @@
-export default function() {
-  return `
-    <p>Stop being so nosy! 👃🏾</p>
-  `;
-}
+export default () => `
+  <p>Stop being so nosy! 👃🏾</p>
+`;
+

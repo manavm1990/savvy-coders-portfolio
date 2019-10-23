@@ -12,7 +12,7 @@ function getFiguresHTML(pics) {
   );
 }
 
-export default (s) => `
+export default s => `
   <div class="fotos">
     ${getFiguresHTML(s.pics)}
   </div>
