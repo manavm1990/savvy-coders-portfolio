@@ -11,6 +11,6 @@ function generateArticlesHTML(posts) {
     .join(" ");
 }
 
-export default state => `
-    ${generateArticlesHTML(state.posts)}
-`;
+export default ( { posts }) => `
+    ${generateArticlesHTML(posts)}
+`
