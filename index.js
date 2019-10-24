@@ -45,7 +45,7 @@ function render(st = state.Home) {
     const mainProxy = new Proxy(st, {
       set(st, k, v) {
         st[k] = v;
-        render(state);
+        render(st);
         return true;
       }
     });
