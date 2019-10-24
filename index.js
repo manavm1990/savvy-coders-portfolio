@@ -2,6 +2,7 @@ import { Header, Nav, Main, Footer } from "./components";
 import * as state from "./store";
 
 import validate from "./validation";
+import posts from "./posts";
 import camera from "./camera";
 
 // import single thing into variable
@@ -26,6 +27,18 @@ function render(st = state.Home) {
 
   if (capitalize(router.lastRouteResolved().url.slice(1)) === "Contact") {
     validate(st);
+  }
+
+  if (capitalize(router.lastRouteResolved().url.slice(1)) === "Blog") {
+    const postsProxy = new Proxy(st, {
+      set(st, k, v) {
+        st[k] = v;
+        render(st);
+        return true;
+      }
+    });
+
+    posts(postsProxy);
   }
 
   if (capitalize(router.lastRouteResolved().url.slice(1)) === "Gallery") {
@@ -59,21 +72,3 @@ router
   .on(":page", params => render(state[capitalize(params.page)]))
   .on("/", () => render())
   .resolve();
-
-axios
-  .get("https://jsonplaceholder.typicode.com/posts")
-  .then(response => {
-    state.Blog.posts = [];
-
-    // 'response.data' is an Array of 'Post' Objects
-    response.data.forEach(post => state.Blog.posts.push(post));
-
-    // If there was a requested route (e.g. /blog, /contact, /about), then the 'params' property will exist.
-    if (
-      router.lastRouteResolved().params &&
-      router.lastRouteResolved().params.page === "Blog"
-    ) {
-      render(state.Blog);
-    }
-  })
-  .catch(err => console.log(err));

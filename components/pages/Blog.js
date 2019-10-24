@@ -1,10 +1,10 @@
 function generateArticlesHTML(posts) {
   return posts
     .map(
-      post => `
+      ({title, body }) => `
       <article>
-        <h2>${post.title}</h2>
-        <p>${post.body}</p>
+        <h2>${title}</h2>
+        <p>${body}</p>
       </article>
     `
     )
