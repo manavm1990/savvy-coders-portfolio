@@ -3,7 +3,7 @@ import * as state from "./store";
 
 import validate from "./validation";
 import posts from "./posts";
-import camera from "./camera";
+import pics from "./pics";
 
 // import single thing into variable
 import router from "./router";
@@ -44,7 +44,7 @@ function render(st = state.Home) {
 
   if (capitalize(router.lastRouteResolved().url.slice(1)) === "Gallery") {
     // Proxy 'watches' st and reacts to changes (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy)
-    camera(getProxy(st));
+    pics(getProxy(st));
   }
 }
 
