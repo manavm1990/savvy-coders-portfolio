@@ -217,6 +217,7 @@ form div {
   margin: 0.4rem 0;
 }
 
+button,
 input[type="submit"] {
   background: var(--secondary);
   border-radius: 3px;
@@ -225,6 +226,15 @@ input[type="submit"] {
   min-height: 2.4rem;
   max-width: 4.8rem;
   text-align: center;
+}
+
+button {
+  background: var(--primary-variant);
+  color: var(--primary-text);
+}
+
+input[type="submit"] {
+  background: var(--secondary);
 }
 
 canvas {
@@ -262,6 +272,14 @@ canvas {
   transform: translateY(1.2rem);
 }
 
+.btns-container {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+}
+
+
+
 .is-valid {
   border: solid green thin;
 }
@@ -276,7 +294,6 @@ canvas {
 
 .is-showing {
   margin-bottom: 1.6rem;
-  transform: translateX(10vw);
 }
 
 /* This should apply for tablets and above! */
@@ -284,6 +301,11 @@ canvas {
   section {
     display: flex;
     flex-direction: column;
+  }
+
+  #modal {
+    /* Approximately 80vw at 768px. This way it's easier to center. */
+    width: 614px;
   }
 
   .read-more-btn {
@@ -294,11 +316,6 @@ canvas {
 
   .hero {
     height: 40vh;
-  }
-
-  .is-hidden--tablet {
-    font-size: 0;
-    height: 0;
   }
 
   .fotos {
@@ -345,6 +362,16 @@ canvas {
 
   textarea {
     max-width: 700px;
+  }
+
+  .is-showing {
+    /* Center this based on half of px width. 👆🏾*/
+    transform: translateX(calc(50vw - 307px));
+  }
+
+  .is-hidden--tablet {
+    font-size: 0;
+    height: 0;
   }
 }
 
@@ -399,13 +426,5 @@ canvas {
 
   .is-shown--desktop {
     font-size: initial;
-  }
-
-  .is-hiding {
-    transform: translateX(-100vw);
-  }
-
-  .is-showing {
-    transform: translateX(10vw);
   }
 }

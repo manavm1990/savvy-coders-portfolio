@@ -23,7 +23,9 @@ export default s => {
     <button class="fas fa-camera-retro" id="take-pic"></button>
   </div>
 
-  <button id="add-pic">Add Photo</button>
+  <div class="btns-container">
+    <button id="add-pic">Add Photo</button>
+  </div>
 
   <div class="fotos">
     ${getFiguresHTML(s.pics)}
