@@ -43,6 +43,7 @@ export default st => {
 
     toggleModal(modal);
 
-    st.pics.push(canvas.toDataURL("image/webp"))
+    // Developer's Note: `push` will not work as it just `return`s `length` of Array
+    st.pics = st.pics.concat([canvas.toDataURL("image/webp")]);
   });
 };
