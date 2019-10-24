@@ -1,6 +1,6 @@
 export default {
   heading: "Contact!",
-  page: "Contact",
+  mainContent: "Contact",
   validators: {
     msg: {
       minLength: 25,

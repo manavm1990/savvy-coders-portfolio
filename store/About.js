@@ -1,4 +1,4 @@
 export default {
-  heading: "About Page",
-  page: "About"
+  heading: "About!",
+  mainContent: "About"
 };

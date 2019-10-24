@@ -1,6 +1,6 @@
 export default {
-  heading: "Blog Page",
-  page: "Blog",
+  heading: "Blogs!",
+  mainContent: "Blog",
   posts: [
     {
       title: "Fetching Posts!",

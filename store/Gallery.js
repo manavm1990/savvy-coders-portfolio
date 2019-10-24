@@ -1,5 +1,5 @@
 export default {
   heading: "Gallery!",
-  page: "Gallery",
+  mainContent: "Gallery",
   pics: ["https://source.unsplash.com/random/800x600"]
 };

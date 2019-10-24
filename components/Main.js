@@ -1,7 +1,7 @@
-import * as pages from "./pages";
+import * as mainContent from "./mainContent";
 
 export default st => `
 <main>
-  ${pages[st.page](st)}
+  ${mainContent[st.mainContent](st)}
 </main>
 `

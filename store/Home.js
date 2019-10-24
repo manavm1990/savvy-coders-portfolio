@@ -1,4 +1,4 @@
 export default {
   heading: "Home!",
-  page: "Home"
+  mainContent: "Home"
 }
