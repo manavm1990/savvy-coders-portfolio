@@ -42,7 +42,7 @@ function render(st = state.Home) {
      * This approach reliably triggers re-renders AND
      * maintains architecture b/c `state` only gets updated from here.
      */
-    const mainProxy = new Proxy(st, {
+    const picsProxy = new Proxy(st, {
       set(st, k, v) {
         st[k] = v;
         render(st);
@@ -51,7 +51,7 @@ function render(st = state.Home) {
     });
 
     // `camera` receives 'fake' state
-    camera(mainProxy);
+    camera(picsProxy);
   }
 }
 
