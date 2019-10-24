@@ -36,7 +36,10 @@ function camera(st) {
     toggleModal(modal);
 
     // Developer's Note: `push` will not work as it just `return`s `length` of Array
-    st.pics = st.pics.concat([canvas.toDataURL("image/webp")]);
+    st.pics = st.pics.concat([{
+      src: canvas.toDataURL("image/webp"),
+      calories: document.querySelector("#calories").value
+    }]);
   });
 }
 

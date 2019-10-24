@@ -1,34 +1,43 @@
 function getFiguresHTML(pics) {
-  return pics.map(
-    pic => `
-      <figure>
-        <!-- TODO: Add to modal 👆🏾 to ask for alt tag info. -->
-        <!-- TODO: Avoid using 'webp' for usage on Safari/iOS Browser. (https://caniuse.com/#search=webp) -->
-        <img src="${pic}" alt="" />
+  return pics
+    .map(pic => {
+      let figHTML = `
+        <figure>
+          <!-- TODO: Avoid using 'webp' for usage on Safari/iOS Browser. (https://caniuse.com/#search=webp) -->
+          <img src="${pic.src}" alt="" />`;
 
-        <!-- TODO: Add <figcaption>. (use modal 👆🏾) -->
-      </figure>
-`
-  ).join(" ");
+      if (pic.calories) {
+        figHTML += `<figcaption>${pic.calories}</figcaption>`;
+      }
+
+      figHTML += `</figure>`;
+      return figHTML;
+    })
+    .join(" ");
 }
 
-export default s => {
- console.log('gallery got state', s)
-  return `
+export default s => `
   <!-- Just a holding spot to capture the image - not to be seen. -->
   <canvas></canvas>
 
   <div id="modal" class="is-hiding">
     <video></video>
+
+    <div>
+      <label for="calories" placeholder="Don't Lie!">Calories?</label>
+      <input type="number" id="calories" />
+    </div>
+
     <button class="fas fa-camera-retro" id="take-pic"></button>
   </div>
 
   <div class="btns-container">
-    <button id="add-pic">Add Photo</button>
+    <button id="add-pic">Add Photo From 📷</button>
+    <button id="add-pic">Upload Photo From 💻</button>
+    <button id="add-pic">Add Photo from URL</button>
   </div>
 
   <div class="fotos">
     ${getFiguresHTML(s.pics)}
   </div>
-  `
-};
+  `;
