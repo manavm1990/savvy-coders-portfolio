@@ -44,9 +44,15 @@ h3 {
 p,
 a,
 label,
-input {
+input,
+figcaption {
   font-size: 1.563em;
   line-height: 1.44;
+}
+
+figcaption {
+  font-weight: bold;
+  text-align: center;
 }
 
 nav a {
@@ -272,13 +278,18 @@ canvas {
   transform: translateY(1.2rem);
 }
 
+/* Just wraps 'calories.' */
+#modal div {
+  color: var(--primary-text);
+  transform: translateY(4.2rem);
+  width: 96px;
+}
+
 .btns-container {
   display: flex;
   justify-content: center;
   width: 100vw;
 }
-
-
 
 .is-valid {
   border: solid green thin;
@@ -294,6 +305,9 @@ canvas {
 
 .is-showing {
   margin-bottom: 1.6rem;
+
+  /* center */
+  transform: translateX(10vw);
 }
 
 /* This should apply for tablets and above! */
