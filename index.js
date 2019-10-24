@@ -2,6 +2,7 @@ import { Header, Nav, Main, Footer } from "./components";
 import * as state from "./store";
 
 import validate from "./validation";
+import posts from "./posts";
 import camera from "./camera";
 
 // import single thing into variable
@@ -28,6 +29,18 @@ function render(st = state.Home) {
     validate(st);
   }
 
+  if (capitalize(router.lastRouteResolved().url.slice(1)) === "Blog") {
+    const postsProxy = new Proxy(st, {
+      set(st, k, v) {
+        st[k] = v;
+        render(st);
+        return true;
+      }
+    });
+
+    posts(postsProxy);
+  }
+
   if (capitalize(router.lastRouteResolved().url.slice(1)) === "Gallery") {
     // Proxy 'watches' st and reacts to changes (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy)
 
@@ -42,7 +55,7 @@ function render(st = state.Home) {
      * This approach reliably triggers re-renders AND
      * maintains architecture b/c `state` only gets updated from here.
      */
-    const mainProxy = new Proxy(st, {
+    const picsProxy = new Proxy(st, {
       set(st, k, v) {
         st[k] = v;
         render(st);
@@ -51,7 +64,7 @@ function render(st = state.Home) {
     });
 
     // `camera` receives 'fake' state
-    camera(mainProxy);
+    camera(picsProxy);
   }
 }
 
@@ -59,21 +72,3 @@ router
   .on(":page", params => render(state[capitalize(params.page)]))
   .on("/", () => render())
   .resolve();
-
-axios
-  .get("https://jsonplaceholder.typicode.com/posts")
-  .then(response => {
-    state.Blog.posts = [];
-
-    // 'response.data' is an Array of 'Post' Objects
-    response.data.forEach(post => state.Blog.posts.push(post));
-
-    // If there was a requested route (e.g. /blog, /contact, /about), then the 'params' property will exist.
-    if (
-      router.lastRouteResolved().params &&
-      router.lastRouteResolved().params.page === "Blog"
-    ) {
-      render(state.Blog);
-    }
-  })
-  .catch(err => console.log(err));
