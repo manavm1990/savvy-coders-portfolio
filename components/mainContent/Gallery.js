@@ -34,8 +34,8 @@ export default s => `
 
   <div class="btns-container">
     <button id="add-pic">Add Photo From 📷</button>
-    <button id="add-pic">Upload Photo From 💻</button>
-    <button id="add-pic">Add Photo from URL</button>
+    <button id="upload-pic">Upload Photo From 💻</button>
+    <button id="url-pic">Add Photo from URL</button>
   </div>
 
   <div class="fotos">
