@@ -2,7 +2,7 @@ function getFiguresHTML(pics) {
   return pics
     .map(pic => {
       let figHTML = `
-        <figure>
+        <figure data-${pic.id}>
           <!-- TODO: Avoid using 'webp' for usage on Safari/iOS Browser. (https://caniuse.com/#search=webp) -->
           <img src="${pic.src}" alt="" />`;
 
