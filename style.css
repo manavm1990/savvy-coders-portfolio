@@ -54,6 +54,10 @@ figcaption {
   display: flex;
   font-weight: bold;
   justify-content: space-between;
+
+  /* If wrapped in flex parent,
+    this will force caption to bottom. */
+  margin-top: auto;
   padding: 0.8rem 1.6rem;
   text-align: center;
 }
@@ -195,6 +199,7 @@ nav .fas {
   position: absolute;
   transform: translateX(calc(100vw - 4.8rem));
 }
+
 .fa-window-close {
   color: var(--error);
   margin: 3px;
@@ -262,7 +267,14 @@ canvas {
 }
 
 .fotos figure {
+  /* Designer's Note: We don't group rules 👇🏾with 👆🏾b/c 👆🏾will be overwritten in `@media` */
+  display: flex;
+  flex-direction: column;
   margin: 0.8rem 0;
+}
+
+.fotos img {
+  border-radius: 3px;
 }
 
 #modal {
