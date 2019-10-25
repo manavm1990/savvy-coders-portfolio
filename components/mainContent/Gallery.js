@@ -7,10 +7,12 @@ function getFiguresHTML(pics) {
           <img src="${pic.src}" alt="" />`;
 
       if (pic.calories) {
-        figHTML += `<figcaption>${pic.calories}</figcaption>`;
+        figHTML += `<figcaption>${pic.calories}<span class="fas fa-trash-alt"></span></figcaption>`;
       }
 
-      figHTML += `</figure>`;
+      figHTML += `
+      </figure>
+      `;
       return figHTML;
     })
     .join(" ");
