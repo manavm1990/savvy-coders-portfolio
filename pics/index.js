@@ -58,4 +58,18 @@ export default st => {
     // Pass in st instead of just st.pics so that it can trigger the PROXY SET TRAP.
     camera(st)
   );
+
+  const delBtns = document.querySelectorAll(".fa-trash-alt");
+
+  delBtns.forEach(delBtn => {
+    delBtn.addEventListener("click", function() {
+      /**
+       * TODO: Use `this.closest('figure')` and
+       * get 'id' from DATA ATTRIBUTE to delete from Firestore
+       * (https://developer.mozilla.org/en-US/docs/Web/API/Element/closest)
+       * (https://firebase.google.com/docs/firestore/manage-data/delete-data)
+       */
+      console.log(this.closest("figure"));
+    });
+  });
 };
