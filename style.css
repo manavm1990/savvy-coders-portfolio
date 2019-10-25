@@ -195,6 +195,11 @@ nav .fas {
   position: absolute;
   transform: translateX(calc(100vw - 4.8rem));
 }
+.fa-window-close {
+  color: var(--error);
+  margin: 3px;
+  transform: translateX(90%);
+}
 
 .is-hidden--mobile {
   font-size: 0;

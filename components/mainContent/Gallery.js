@@ -23,13 +23,12 @@ export default s => `
   <canvas></canvas>
 
   <div id="modal" class="is-hiding">
+    <span class="fas fa-window-close"></span>
     <video></video>
-
     <div>
       <label for="calories" placeholder="Don't Lie!">Calories?</label>
       <input type="number" id="calories" />
     </div>
-
     <button class="fas fa-camera-retro" id="take-pic"></button>
   </div>
 
