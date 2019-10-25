@@ -1,5 +1,7 @@
 import { db } from "../firebase";
 
+const dbCollection = db.collection("pics");
+
 function camera(st) {
   const modal = document.querySelector("#modal");
 
@@ -46,10 +48,10 @@ function camera(st) {
     };
 
     // Write data
-    db.collection("pics").add(newPic).then(docRef => {
+    dbCollection.add(newPic).then(docRef => {
       // Get the id in case we need to delete it
-      newPic.id = docRef.id
-    })
+      newPic.id = docRef.id;
+    });
 
     // Developer's Note: `push` will not work as it just `return`s `length` of Array
     // Wrap newPic in Array so we can use `concat()` and trigger PROXY's SET TRAP.
@@ -75,23 +77,25 @@ export default st => {
     db.collection("pics")
       .get()
       .then(
-        querySnapshot => (st.pics = querySnapshot.docs.map(doc => {
-          const pic = doc.data();
-          pic.id = doc.id;
-          return pic;
-        })
-      ))
+        querySnapshot =>
+          (st.pics = querySnapshot.docs.map(doc => {
+            const pic = doc.data();
+            pic.id = doc.id;
+            return pic;
+          }))
+      );
   }
 
   delBtns.forEach(delBtn => {
     delBtn.addEventListener("click", function() {
-      /**
-       * TODO: Use `this.closest('figure')` and
-       * get 'id' from DATA ATTRIBUTE to delete from Firestore
-       * (https://developer.mozilla.org/en-US/docs/Web/API/Element/closest)
-       * (https://firebase.google.com/docs/firestore/manage-data/delete-data)
-       */
-      console.log(this.closest("figure"));
+      const figure = this.closest("figure");
+
+      // https://firebase.google.com/docs/firestore/manage-data/delete-data
+      dbCollection.doc(figure.dataset.id).delete().then(() => {
+
+        // https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/remove
+        figure.remove();
+      });
     });
   });
 };

@@ -6,7 +6,7 @@ function getFiguresHTML(pics) {
   return pics
     .map(pic => {
       let figHTML = `
-        <figure data-${pic.id}>
+        <figure data-id=${pic.id}>
           <!-- TODO: Avoid using 'webp' for usage on Safari/iOS Browser. (https://caniuse.com/#search=webp). -->
           <!-- TODO: Add a field for some type of description and use that for alt attribute. -->
           <img src="${pic.src}" alt="" />`;
