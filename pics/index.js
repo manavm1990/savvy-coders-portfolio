@@ -40,13 +40,17 @@ function camera(st) {
 
     toggleModal(modal);
 
+    const newPic = {
+      src: canvas.toDataURL("image/webp"),
+      calories: document.querySelector("#calories").value
+    };
+
+    // Write data
+    db.collection("pics").add(newPic);
+
     // Developer's Note: `push` will not work as it just `return`s `length` of Array
-    st.pics = st.pics.concat([
-      {
-        src: canvas.toDataURL("image/webp"),
-        calories: document.querySelector("#calories").value
-      }
-    ]);
+    // Wrap newPic in Array so we can use `concat()` and trigger PROXY's SET TRAP.
+    st.pics = st.pics.concat([newPic]);
   });
 }
 
@@ -67,7 +71,9 @@ export default st => {
   if (!st.pics.length) {
     db.collection("pics")
       .get()
-      .then(querySnapshot => st.pics = querySnapshot.docs.map(doc => doc.data()));
+      .then(
+        querySnapshot => (st.pics = querySnapshot.docs.map(doc => doc.data()))
+      );
   }
 
   delBtns.forEach(delBtn => {
