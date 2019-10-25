@@ -1,8 +1,7 @@
 function camera(st) {
   const modal = document.querySelector("#modal");
-  const video = document.querySelector("video");
 
-  const takePicBtn = document.querySelector("#take-pic");
+  const video = document.querySelector("video");
   const canvas = document.querySelector("canvas");
 
   toggleModal(modal);
@@ -30,7 +29,7 @@ function camera(st) {
       console.log("An error occurred: " + err);
     });
 
-  takePicBtn.addEventListener("click", () => {
+  document.querySelector("#take-pic").addEventListener("click", () => {
     canvas.width = video.videoWidth;
     canvas.height = video.videoHeight;
 
@@ -40,10 +39,12 @@ function camera(st) {
     toggleModal(modal);
 
     // Developer's Note: `push` will not work as it just `return`s `length` of Array
-    st.pics = st.pics.concat([{
-      src: canvas.toDataURL("image/webp"),
-      calories: document.querySelector("#calories").value
-    }]);
+    st.pics = st.pics.concat([
+      {
+        src: canvas.toDataURL("image/webp"),
+        calories: document.querySelector("#calories").value
+      }
+    ]);
   });
 }
 
