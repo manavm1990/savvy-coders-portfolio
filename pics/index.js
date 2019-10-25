@@ -1,3 +1,5 @@
+import { db } from "../firebase";
+
 function camera(st) {
   const modal = document.querySelector("#modal");
 
@@ -54,12 +56,19 @@ function toggleModal(modal) {
 }
 
 export default st => {
+  const delBtns = document.querySelectorAll(".fa-trash-alt");
+
   document.querySelector("#add-pic").addEventListener("click", () =>
     // Pass in st instead of just st.pics so that it can trigger the PROXY SET TRAP.
     camera(st)
   );
 
-  const delBtns = document.querySelectorAll(".fa-trash-alt");
+  // If no pics, let's get some - otherwise, no need to.
+  if (!st.pics.length) {
+    db.collection("pics")
+      .get()
+      .then(querySnapshot => st.pics = querySnapshot.docs.map(doc => doc.data()));
+  }
 
   delBtns.forEach(delBtn => {
     delBtn.addEventListener("click", function() {

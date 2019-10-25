@@ -1,4 +1,8 @@
 function getFiguresHTML(pics) {
+  if (!pics.length) {
+    return "<p>No pics yet! 😞</p>";
+  }
+
   return pics
     .map(pic => {
       let figHTML = `
