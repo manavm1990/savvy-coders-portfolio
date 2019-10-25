@@ -24,4 +24,4 @@ In order to grasp the intermediate-advanced concepts in this repo, you may want 
 4. [String Prototype Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/prototype)
 5. [Canvas](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/getContext)
 
-## Firebase, Proxies, Better SPA Architecture and All The Things! (Bonus Lesson)
+## Firebase, Proxies, Better SPA Architecture and All The Things! (Bonus Lessons)
