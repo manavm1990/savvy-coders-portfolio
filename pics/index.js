@@ -46,7 +46,10 @@ function camera(st) {
     };
 
     // Write data
-    db.collection("pics").add(newPic);
+    db.collection("pics").add(newPic).then(docRef => {
+      // Get the id in case we need to delete it
+      newPic.id = docRef.id
+    })
 
     // Developer's Note: `push` will not work as it just `return`s `length` of Array
     // Wrap newPic in Array so we can use `concat()` and trigger PROXY's SET TRAP.
@@ -72,8 +75,12 @@ export default st => {
     db.collection("pics")
       .get()
       .then(
-        querySnapshot => (st.pics = querySnapshot.docs.map(doc => doc.data()))
-      );
+        querySnapshot => (st.pics = querySnapshot.docs.map(doc => {
+          const pic = doc.data();
+          pic.id = doc.id;
+          return pic;
+        })
+      ))
   }
 
   delBtns.forEach(delBtn => {
