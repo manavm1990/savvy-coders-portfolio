@@ -251,6 +251,11 @@ button {
   color: var(--primary-text);
 }
 
+input[type="file"] {
+  margin: 0.8rem auto;
+  max-width: 15rem;
+}
+
 input[type="submit"] {
   background: var(--secondary);
 }
@@ -304,7 +309,8 @@ canvas {
   width: 96px;
 }
 
-.btns-container {
+.btns-container,
+.input-file-container {
   display: flex;
   justify-content: center;
   width: 100vw;

@@ -39,8 +39,11 @@ export default s => `
 
   <div class="btns-container">
     <button id="add-pic">Add Photo From 📷</button>
-    <button id="upload-pic">Upload Photo From 💻</button>
     <button id="url-pic">Add Photo from URL</button>
+  </div>
+
+  <div class="input-file-container">
+    <input type="file" id="upload-pic" accept="image/png, image/jpeg">
   </div>
 
   <div class="fotos">
