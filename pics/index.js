@@ -7,6 +7,10 @@ function camera(st) {
 
   toggleModal(modal);
 
+  document
+    .querySelector(".fa-window-close")
+    .addEventListener("click", () => toggleModal(modal));
+
   /**
    * `navigator` represents the browser.
    *
