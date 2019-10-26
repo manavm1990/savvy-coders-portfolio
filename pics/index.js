@@ -3,7 +3,7 @@ import { db } from "../firebase";
 const dbCollection = db.collection("pics");
 
 function camera(st) {
-  const modal = document.querySelector("#modal");
+  const modal = document.querySelector("#modal--camera");
 
   const video = document.querySelector("video");
   const canvas = document.querySelector("canvas");

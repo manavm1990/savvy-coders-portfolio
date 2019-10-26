@@ -291,7 +291,7 @@ canvas {
   border-radius: 3px;
 }
 
-#modal {
+#modal--camera {
   background: black;
   display: flex;
   flex-direction: column;
@@ -302,7 +302,7 @@ canvas {
   width: 80vw;
 }
 
-#modal button {
+#modal--camera button {
   background: var(--primary-variant);
   color: white;
   margin-left: auto;
@@ -312,7 +312,7 @@ canvas {
 }
 
 /* Just wraps 'caption.' */
-#modal div {
+#modal--camera div {
   color: var(--primary-text);
   transform: translateY(4.2rem);
   width: 96px;
@@ -351,7 +351,7 @@ canvas {
     flex-direction: column;
   }
 
-  #modal {
+  #modal--camera {
     /* Approximately 80vw at 768px. This way it's easier to center. */
     width: 614px;
   }
