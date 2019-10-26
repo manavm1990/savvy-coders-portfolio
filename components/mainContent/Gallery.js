@@ -29,7 +29,7 @@ export default s => `
     <video></video>
     <div>
       <label for="caption">Caption?</label>
-      <input type="number" id="caption" />
+      <input type="text" id="caption" />
     </div>
     <button class="fas fa-camera-retro" id="take-pic"></button>
   </div>
