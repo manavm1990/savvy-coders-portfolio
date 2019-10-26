@@ -24,19 +24,24 @@ export default s => `
   <!-- Just a holding spot to capture the image - not to be seen. -->
   <canvas></canvas>
 
-  <div id="modal--auth" class="modal is-hiding">
+  <form id="modal--auth" class="modal is-hiding">
+    <span class="fas fa-window-close"></span>
     <div>
       <label for="email">✉️:</label>
       <input type="email" id="email" placeholder="you@yourdomain.com"/>
     </div>
+
     <div>
       <label for="pass">Password:</label>
       <input type="password" id="pass" />
     </div>
-    <input type="submit" value="Log in" />
-    <input type="submit" value="Create Account" />
+
+    <div>
+      <input type="submit" value="Log in" />
+      <input type="submit" value="Create Account" />
+    </div>
     <p class="error"></p>
-  </div>
+  </form>
 
   <div id="modal--camera" class="modal is-hiding">
     <span class="fas fa-window-close"></span>
