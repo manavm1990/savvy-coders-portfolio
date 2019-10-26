@@ -211,6 +211,10 @@ nav .fas {
   transform: translateX(90%);
 }
 
+.fa-trash-alt:hover {
+  cursor: pointer;
+}
+
 .is-hidden--mobile {
   font-size: 0;
   height: 0;
