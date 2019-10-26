@@ -59,20 +59,20 @@ function camera(st) {
   });
 }
 
-function fileReader(f) {
+function fileReader(file) {
   return new Promise((resolve, reject) => {
-    const r = new FileReader();
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
 
-    r.addEventListener('load', () => {
-      resolve(r.result);
-    })
+    // The load event is fired when a file has been read successfully (MDN)
+    reader.addEventListener("load", () => {
+      // Send back the URL info from 👆🏾
+      resolve(reader.result);
+    });
 
-    r.addEventListener('error', (err) => {
-      r.abort();
-      reject(err)
-    })
-
-    r.readAsDataURL(f);
+    reader.addEventListener("error", err => {
+      reject(err);
+    });
   });
 }
 
@@ -84,10 +84,11 @@ function toggleModal(modal) {
 export default st => {
   const delBtns = document.querySelectorAll(".fa-trash-alt");
 
-  document.querySelector("#add-pic").addEventListener("click", () =>
+  document.querySelector("#add-pic").addEventListener("click", () => {
     // Pass in st instead of just st.pics so that it can trigger the PROXY SET TRAP.
-    camera(st)
-  );
+    camera(st);
+  });
+
   document.querySelector("#upload-pic").addEventListener("change", function() {
     fileReader(this.files[0])
       .then(response => console.log(response))
@@ -113,11 +114,13 @@ export default st => {
       const figure = this.closest("figure");
 
       // https://firebase.google.com/docs/firestore/manage-data/delete-data
-      dbCollection.doc(figure.dataset.id).delete().then(() => {
-
-        // https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/remove
-        figure.remove();
-      });
+      dbCollection
+        .doc(figure.dataset.id)
+        .delete()
+        .then(() => {
+          // https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/remove
+          figure.remove();
+        });
     });
   });
 };
