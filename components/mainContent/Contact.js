@@ -1,5 +1,5 @@
 export default () => `
-  <form action="#" method="POST" data-netlify="true">
+  <form action="#" method="POST" data-netlify="true" class="form--contact">
     <div class="flex-container--tablet flex-row--tablet">
       <div>
         <label for="name">Name:</label>
