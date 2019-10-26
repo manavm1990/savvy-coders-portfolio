@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "@firebase/app": "^0.4.20",
+    "@firebase/auth": "^0.12.3",
     "@firebase/firestore": "^1.6.2",
     "axios": "^0.19.0",
     "lodash": "^4.17.15",
