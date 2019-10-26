@@ -95,7 +95,15 @@ export default st => {
 
   document.querySelector("#upload-pic").addEventListener("change", function() {
     fileReader(this.files[0])
-      .then(response => console.log(response))
+      .then(response => {
+        const newPic = {
+          src: response,
+        };
+
+        // Developer's Note: `push` will not work as it just `return`s `length` of Array
+        // Wrap newPic in Array so we can use `concat()` and trigger PROXY's SET TRAP.
+        st.pics = st.pics.concat([ritePic(newPic)]);
+      })
       .catch(err => console.log(err));
   });
 
