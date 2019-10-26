@@ -1,4 +1,4 @@
-import { db } from "../firebase";
+import { auth, db } from "../firebase";
 
 const dbCollection = db.collection("pics");
 
@@ -85,10 +85,13 @@ function ritePic(pic) {
    * Developer's Note: Since we are just using base64 URL encoded string,
    * if the pic is too big, it will error out!
    */
-  dbCollection.add(pic).then(docRef => {
-    // Get the id in case we need to delete it
-    pic.id = docRef.id;
-  }).catch(() => pic.caption = "This pic is too big! Try another!");
+  dbCollection
+    .add(pic)
+    .then(docRef => {
+      // Get the id in case we need to delete it
+      pic.id = docRef.id;
+    })
+    .catch(() => (pic.caption = "This pic is too big! Try another!"));
 
   return pic;
 }
@@ -101,6 +104,20 @@ function toggleModal(modal) {
 export default st => {
   const delBtns = document.querySelectorAll(".fa-trash-alt");
 
+  // If no pics, let's get some - otherwise, no need to.
+  if (!st.pics.length) {
+    db.collection("pics")
+      .get()
+      .then(
+        querySnapshot =>
+          (st.pics = querySnapshot.docs.map(doc => {
+            const pic = doc.data();
+            pic.id = doc.id;
+            return pic;
+          }))
+      );
+  }
+
   document.querySelector("#add-pic").addEventListener("click", () => {
     // Pass in st instead of just st.pics so that it can trigger the PROXY SET TRAP.
     camera(st);
@@ -110,7 +127,7 @@ export default st => {
     fileReader(this.files[0])
       .then(response => {
         const newPic = {
-          src: response,
+          src: response
         };
 
         // Developer's Note: `push` will not work as it just `return`s `length` of Array
@@ -123,16 +140,6 @@ export default st => {
   document.querySelector("#url-pic").addEventListener("click", () => {
     authorize();
   });
-      .get()
-      .then(
-        querySnapshot =>
-          (st.pics = querySnapshot.docs.map(doc => {
-            const pic = doc.data();
-            pic.id = doc.id;
-            return pic;
-          }))
-      );
-  }
 
   delBtns.forEach(delBtn => {
     delBtn.addEventListener("click", function() {
