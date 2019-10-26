@@ -6,10 +6,6 @@ function authorize() {
   const modal = document.querySelector("#modal--auth");
 
   toggleModal(modal);
-
-  document
-    .querySelector(".fa-window-close")
-    .addEventListener("click", () => toggleModal(modal));
 }
 
 function camera(st) {
@@ -19,10 +15,6 @@ function camera(st) {
   const canvas = document.querySelector("canvas");
 
   toggleModal(modal);
-
-  document
-    .querySelector(".fa-window-close")
-    .addEventListener("click", () => toggleModal(modal));
 
   /**
    * `navigator` represents the browser.
@@ -102,6 +94,7 @@ function toggleModal(modal) {
 }
 
 export default st => {
+  const closeBtns = document.querySelectorAll(".fa-window-close");
   const delBtns = document.querySelectorAll(".fa-trash-alt");
 
   // If no pics, let's get some - otherwise, no need to.
@@ -139,6 +132,13 @@ export default st => {
 
   document.querySelector("#url-pic").addEventListener("click", () => {
     authorize();
+  });
+
+  closeBtns.forEach(closeBtn => {
+    closeBtn.addEventListener("click", function() {
+      const modal = this.closest(".modal");
+      toggleModal(modal);
+    });
   });
 
   delBtns.forEach(delBtn => {
