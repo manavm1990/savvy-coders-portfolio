@@ -1,4 +1,6 @@
-# Form Validation Demo (Bonus Lesson)
+# Enhanced/Experimental SPA Based On Student Inquiries
+
+## Form Validation Demo (Bonus Lesson)
 
 In order to grasp the intermediate concepts in this repo, you may want to first peruse:
 
@@ -12,7 +14,7 @@ In order to grasp the intermediate concepts in this repo, you may want to first 
 
 [Experiment with Regular Expressions!](https://regex101.com/) 
 
-# WebRTC Webcam and Proxies! (Bonus Lesson)
+## WebRTC Webcam and Proxies! (Bonus Lesson)
 
 In order to grasp the intermediate-advanced concepts in this repo, you may want to first peruse:
 
@@ -21,3 +23,5 @@ In order to grasp the intermediate-advanced concepts in this repo, you may want 
 3. [Ternary](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator)
 4. [String Prototype Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/prototype)
 5. [Canvas](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/getContext)
+
+## Firebase, Proxies, Better SPA Architecture and All The Things! (Bonus Lessons)
