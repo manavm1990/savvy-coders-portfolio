@@ -51,6 +51,7 @@ figcaption {
 }
 
 figcaption {
+  align-items: flex-end;
   display: flex;
   font-weight: bold;
   justify-content: space-between;
@@ -138,6 +139,10 @@ nav {
   border-top: var(--border-secondary);
   border-bottom: var(--border-secondary);
   min-height: 4.8rem;
+}
+
+main {
+  padding-bottom: 0.4rem;
 }
 
 input,
