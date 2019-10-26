@@ -4,11 +4,31 @@ const dbCollection = db.collection("pics");
 
 function authorize() {
   const modal = document.querySelector("#modal--auth");
-  const submitBtns = modal.querySelectorAll('button');
+  const error = modal.querySelector(".error");
 
-  submitBtns.forEach(submitBtn => submitBtn.addEventListener('click', function() {
-    console.log(this.textContent);
-    }))
+  modal.querySelectorAll("button").forEach(btn =>
+    btn.addEventListener("click", function() {
+      if (this.textContent === "Login") {
+        auth
+          .signInWithEmailAndPassword(
+            modal.querySelector("#email").value,
+            modal.querySelector("#pass").value
+          ).then(() => {
+            toggleModal(modal);
+          })
+          .catch(err => {
+            modal.querySelector(".error").textContent = err.message;
+          });
+      }
+    })
+  );
+
+  modal.querySelectorAll("input").forEach(i => {
+    // Clear error message if user tries again by focusing on input
+    i.addEventListener("focus", () => {
+      error.textContent = "";
+    });
+  });
 
   toggleModal(modal);
 }

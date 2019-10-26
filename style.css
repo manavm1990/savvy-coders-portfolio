@@ -342,6 +342,7 @@ canvas {
 }
 
 .error {
+  color: var(--error);
   margin: 0;
 }
 
