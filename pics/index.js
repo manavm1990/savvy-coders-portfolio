@@ -44,7 +44,7 @@ function camera(st) {
 
     const newPic = {
       src: canvas.toDataURL("image/webp"),
-      calories: document.querySelector("#calories").value
+      caption: document.querySelector("#caption").value
     };
 
     // Developer's Note: `push` will not work as it just `return`s `length` of Array

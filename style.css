@@ -302,7 +302,7 @@ canvas {
   transform: translateY(1.2rem);
 }
 
-/* Just wraps 'calories.' */
+/* Just wraps 'caption.' */
 #modal div {
   color: var(--primary-text);
   transform: translateY(4.2rem);

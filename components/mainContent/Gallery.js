@@ -9,13 +9,10 @@ function getFiguresHTML(pics) {
         <figure data-id=${pic.id}>
           <!-- TODO: Avoid using 'webp' for usage on Safari/iOS Browser. (https://caniuse.com/#search=webp). -->
           <!-- TODO: Add a field for some type of description and use that for alt attribute. -->
-          <img src="${pic.src}" alt="" />`;
-
-      if (pic.calories) {
-        figHTML += `<figcaption>${pic.calories}<span class="fas fa-trash-alt"></span></figcaption>`;
-      }
-
-      figHTML += `
+          <img src="${pic.src}" alt="" />
+          <figcaption>${pic.caption || "No caption!"}
+            <span class="fas fa-trash-alt"></span>
+          </figcaption>;
       </figure>
       `;
       return figHTML;
@@ -31,8 +28,8 @@ export default s => `
     <span class="fas fa-window-close"></span>
     <video></video>
     <div>
-      <label for="calories" placeholder="Don't Lie!">Calories?</label>
-      <input type="number" id="calories" />
+      <label for="caption">Caption?</label>
+      <input type="number" id="caption" />
     </div>
     <button class="fas fa-camera-retro" id="take-pic"></button>
   </div>
