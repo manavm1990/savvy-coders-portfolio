@@ -45,7 +45,8 @@ p,
 a,
 label,
 input,
-figcaption {
+figcaption,
+button {
   font-size: 1.563em;
   line-height: 1.44;
 }
@@ -255,7 +256,7 @@ input[type="submit"] {
   max-width: 4.8rem;
 }
 
-button {
+.btns-container button {
   background: var(--primary-variant);
   color: var(--primary-text);
 }
@@ -263,10 +264,6 @@ button {
 input[type="file"] {
   margin: 0.8rem auto;
   max-width: 15rem;
-}
-
-input[type="submit"] {
-  background: var(--secondary);
 }
 
 canvas {

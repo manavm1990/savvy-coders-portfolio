@@ -37,8 +37,8 @@ export default s => `
     </div>
 
     <div>
-      <input type="submit" value="Log in" />
-      <input type="submit" value="Create Account" />
+      <button type="button">Login</button>
+      <button type="button">Sign Up</button>
     </div>
     <p class="error"></p>
   </form>

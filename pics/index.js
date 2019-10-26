@@ -4,6 +4,11 @@ const dbCollection = db.collection("pics");
 
 function authorize() {
   const modal = document.querySelector("#modal--auth");
+  const submitBtns = modal.querySelectorAll('button');
+
+  submitBtns.forEach(submitBtn => submitBtn.addEventListener('click', function() {
+    console.log(this.textContent);
+    }))
 
   toggleModal(modal);
 }
