@@ -72,10 +72,15 @@ function fileReader(file) {
 
 function ritePic(pic) {
   // Write data
+
+  /**
+   * Developer's Note: Since we are just using base64 URL encoded string,
+   * if the pic is too big, it will error out!
+   */
   dbCollection.add(pic).then(docRef => {
     // Get the id in case we need to delete it
     pic.id = docRef.id;
-  });
+  }).catch(() => pic.caption = "This pic is too big! Try another!");
 
   return pic;
 }
