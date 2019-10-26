@@ -71,8 +71,6 @@ function fileReader(file) {
 }
 
 function ritePic(pic) {
-  // Write data
-
   /**
    * Developer's Note: Since we are just using base64 URL encoded string,
    * if the pic is too big, it will error out!
