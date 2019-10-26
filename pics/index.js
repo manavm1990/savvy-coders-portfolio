@@ -47,15 +47,9 @@ function camera(st) {
       calories: document.querySelector("#calories").value
     };
 
-    // Write data
-    dbCollection.add(newPic).then(docRef => {
-      // Get the id in case we need to delete it
-      newPic.id = docRef.id;
-    });
-
     // Developer's Note: `push` will not work as it just `return`s `length` of Array
     // Wrap newPic in Array so we can use `concat()` and trigger PROXY's SET TRAP.
-    st.pics = st.pics.concat([newPic]);
+    st.pics = st.pics.concat([ritePic(newPic)]);
   });
 }
 
@@ -74,6 +68,16 @@ function fileReader(file) {
       reject(err);
     });
   });
+}
+
+function ritePic(pic) {
+  // Write data
+  dbCollection.add(pic).then(docRef => {
+    // Get the id in case we need to delete it
+    pic.id = docRef.id;
+  });
+
+  return pic;
 }
 
 function toggleModal(modal) {
