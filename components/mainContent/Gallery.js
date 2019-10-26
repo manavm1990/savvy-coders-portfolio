@@ -24,7 +24,7 @@ export default s => `
   <!-- Just a holding spot to capture the image - not to be seen. -->
   <canvas></canvas>
 
-  <div id="modal--auth" class="is-hiding">
+  <div id="modal--auth" class="modal is-hiding">
     <div>
       <label for="email">✉️:</label>
       <input type="email" id="email" placeholder="you@yourdomain.com"/>
@@ -38,8 +38,7 @@ export default s => `
     <p class="error"></p>
   </div>
 
-
-  <div id="modal--camera" class="is-hiding">
+  <div id="modal--camera" class="modal is-hiding">
     <span class="fas fa-window-close"></span>
     <video></video>
     <div>

@@ -2,6 +2,16 @@ import { db } from "../firebase";
 
 const dbCollection = db.collection("pics");
 
+function authorize() {
+  const modal = document.querySelector("#modal--auth");
+
+  toggleModal(modal);
+
+  document
+    .querySelector(".fa-window-close")
+    .addEventListener("click", () => toggleModal(modal));
+}
+
 function camera(st) {
   const modal = document.querySelector("#modal--camera");
 
@@ -110,9 +120,9 @@ export default st => {
       .catch(err => console.log(err));
   });
 
-  // If no pics, let's get some - otherwise, no need to.
-  if (!st.pics.length) {
-    db.collection("pics")
+  document.querySelector("#url-pic").addEventListener("click", () => {
+    authorize();
+  });
       .get()
       .then(
         querySnapshot =>
