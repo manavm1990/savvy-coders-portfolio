@@ -59,6 +59,23 @@ function camera(st) {
   });
 }
 
+function fileReader(f) {
+  return new Promise((resolve, reject) => {
+    const r = new FileReader();
+
+    r.addEventListener('load', () => {
+      resolve(r.result);
+    })
+
+    r.addEventListener('error', (err) => {
+      r.abort();
+      reject(err)
+    })
+
+    r.readAsDataURL(f);
+  });
+}
+
 function toggleModal(modal) {
   modal.classList.toggle("is-hiding");
   modal.classList.toggle("is-showing");
@@ -71,6 +88,11 @@ export default st => {
     // Pass in st instead of just st.pics so that it can trigger the PROXY SET TRAP.
     camera(st)
   );
+  document.querySelector("#upload-pic").addEventListener("change", function() {
+    fileReader(this.files[0])
+      .then(response => console.log(response))
+      .catch(err => console.log(err));
+  });
 
   // If no pics, let's get some - otherwise, no need to.
   if (!st.pics.length) {
