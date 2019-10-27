@@ -43,6 +43,12 @@ export default s => `
     <p class="error"></p>
   </form>
 
+  <div id="modal--admin" class="modal is-hiding">
+    <span class="fas fa-window-close"></span>
+    <p>Yeah, you are authorized...maybe later there will be a form here for you to add a URL and a caption. 🤷🏾‍♂️⌛</p>
+    <button id="sign-out">Sign Out</button>
+  </div>
+
   <div id="modal--camera" class="modal is-hiding">
     <span class="fas fa-window-close"></span>
     <video></video>

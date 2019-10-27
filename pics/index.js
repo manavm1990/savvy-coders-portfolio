@@ -2,6 +2,19 @@ import { auth, db } from "../firebase";
 
 const dbCollection = db.collection("pics");
 
+function admin() {
+  const modal = document.querySelector("#modal--admin");
+
+  modal.querySelector('#sign-out').addEventListener('click', () => {
+    auth.signOut().then(() => {
+      toggleModal(modal);
+      authorize();
+    }).catch(err => console.error('Sign Out error!', err.message))
+  })
+
+  toggleModal(modal);
+}
+
 function authorize() {
   const modal = document.querySelector("#modal--auth");
   const error = modal.querySelector(".error");
@@ -13,8 +26,10 @@ function authorize() {
           .signInWithEmailAndPassword(
             modal.querySelector("#email").value,
             modal.querySelector("#pass").value
-          ).then(() => {
+          )
+          .then(() => {
             toggleModal(modal);
+            admin();
           })
           .catch(err => {
             modal.querySelector(".error").textContent = err.message;
@@ -156,7 +171,11 @@ export default st => {
   });
 
   document.querySelector("#url-pic").addEventListener("click", () => {
-    authorize();
+    if (st.isAuth) {
+      admin();
+    } else {
+      authorize();
+    }
   });
 
   closeBtns.forEach(closeBtn => {

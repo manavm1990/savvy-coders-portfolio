@@ -6,5 +6,6 @@ export default {
       title: "Fetching Posts!",
       body: "Please stand by...or ✅ back!"
     }
-  ]
+  ],
+  isAuth: true
 };

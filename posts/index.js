@@ -19,4 +19,15 @@ export default st => {
       }
     })
     .catch(err => console.log(err));
+
+  if (st.isAuth) {
+    alert(`This is tacky way to check auth. BTW U are authorized!
+      Also, this will check auth each time it renders this page, so after the posts are loaded, you will see this again!
+    `);
+  } else {
+    alert(`
+      This is tacky way to check auth. BTW U are NOT authorized!
+      Also, this will check auth each time it renders this page, so after the posts are loaded, you will see this again!
+    `);
+  }
 };

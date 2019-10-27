@@ -1,5 +1,6 @@
 export default {
   heading: "Gallery!",
   mainContent: "Gallery",
-  pics: []
+  pics: [],
+  isAuth: false
 };

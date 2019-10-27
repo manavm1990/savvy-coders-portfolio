@@ -8,6 +8,8 @@ import pics from "./pics";
 // import single thing into variable
 import router from "./router";
 
+import { auth } from "./firebase";
+
 import { capitalize } from "lodash";
 
 function getProxy(st) {
@@ -43,6 +45,11 @@ function render(st = state.Home) {
   }
 
   if (capitalize(router.lastRouteResolved().url.slice(1)) === "Gallery") {
+    // Check auth status
+    auth.onAuthStateChanged(user => {
+      st.isAuth = Boolean(user);
+    })
+
     // Proxy 'watches' st and reacts to changes (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy)
     pics(getProxy(st));
   }
