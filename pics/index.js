@@ -9,7 +9,6 @@ function admin() {
     auth
       .signOut()
       .then(() => {
-        console.log('signed out')
         toggleModal(modal);
         authorize();
       })
