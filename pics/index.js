@@ -5,12 +5,16 @@ const dbCollection = db.collection("pics");
 function admin() {
   const modal = document.querySelector("#modal--admin");
 
-  modal.querySelector('#sign-out').addEventListener('click', () => {
-    auth.signOut().then(() => {
-      toggleModal(modal);
-      authorize();
-    }).catch(err => console.error('Sign Out error!', err.message))
-  })
+  modal.querySelector("#sign-out").addEventListener("click", () => {
+    auth
+      .signOut()
+      .then(() => {
+        console.log('signed out')
+        toggleModal(modal);
+        authorize();
+      })
+      .catch(err => console.error("Sign Out error!", err.message));
+  });
 
   toggleModal(modal);
 }
@@ -18,6 +22,8 @@ function admin() {
 function authorize() {
   const modal = document.querySelector("#modal--auth");
   const error = modal.querySelector(".error");
+
+  error.textContent = "";
 
   modal.querySelectorAll("button").forEach(btn =>
     btn.addEventListener("click", function() {
@@ -28,6 +34,18 @@ function authorize() {
             modal.querySelector("#pass").value
           )
           .then(() => {
+            toggleModal(modal);
+            admin();
+          })
+          .catch(err => {
+            modal.querySelector(".error").textContent = err.message;
+          });
+      } else {
+        // Must be the sign up button.
+        auth.createUserWithEmailAndPassword(
+          modal.querySelector("#email").value,
+          modal.querySelector("#pass").value
+        ).then(() => {
             toggleModal(modal);
             admin();
           })
