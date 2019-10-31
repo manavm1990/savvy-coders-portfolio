@@ -105,12 +105,15 @@ export function handleCameraModal(st) {
 
     const newPic = {
       src: canvas.toDataURL("image/webp"),
-      caption: document.querySelector("#caption").value,
+      caption: document.querySelector("#caption").value
     };
 
-    // Developer's Note: `push` will not work as it just `return`s `length` of Array
-    // Wrap newPic in Array so we can use `concat()` and trigger PROXY's SET TRAP.
-    st.pics = st.pics.concat([ritePic(newPic)]);
+    // ritePic will get add 'id' for us
+    ritePic(newPic).then(updatedPic => {
+      // Developer's Note: `push` will not work as it just `return`s `length` of Array
+      // Wrap newPic in Array so we can use `concat()` and trigger PROXY's SET TRAP.
+      st.pics = st.pics.concat([updatedPic]);
+    });
   });
 }
 
@@ -132,19 +135,20 @@ export function readFile(file) {
 }
 
 export function ritePic(pic) {
-  /**
-   * Developer's Note: Since we are just using base64 URL encoded string,
-   * if the pic is too big, it will error out!
-   */
-  dbConnection
-    .add(pic)
-    .then(docRef => {
-      // Get the id in case we need to delete it
-      pic.id = docRef.id;
-    })
-    .catch(() => (pic.caption = "This pic is too big! Try another!"));
-
-  return pic;
+  return new Promise(resolve => {
+    dbConnection
+      .add(pic)
+      .then(docRef => {
+        // Get the id in case we need to delete it
+        pic.id = docRef.id;
+        resolve(pic);
+      })
+      .catch(err => {
+        // Update `caption` with any error so we know it wasn't written to firestore.
+        pic.caption = err.message;
+        resolve(pic);
+      });
+  });
 }
 
 export function toggleModal(modal) {

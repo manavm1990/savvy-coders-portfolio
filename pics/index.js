@@ -36,11 +36,17 @@ export default st => {
           src: response
         };
 
-        // Developer's Note: `push` will not work as it just `return`s `length` of Array
-        // Wrap newPic in Array so we can use `concat()` and trigger PROXY's SET TRAP.
-        st.pics = st.pics.concat([ritePic(newPic)]);
+        /**
+         * Developer's Note: There is no `reject` to `catch`.
+         * This is b/c if there is an error,
+         * it will come from firestore, and that will just be the caption.
+         */
+        ritePic(newPic).then(updatedPic => {
+          // Developer's Note: `push` will not work as it just `return`s `length` of Array
+          // Wrap newPic in Array so we can use `concat()` and trigger PROXY's SET TRAP.
+          st.pics = st.pics.concat([updatedPic]);
+        });
       })
-      .catch(err => console.log(err));
   });
 
   document.querySelector("#url-pic").addEventListener("click", () => {
@@ -67,11 +73,6 @@ export default st => {
         .doc(figure.dataset.id)
         .delete()
         .then(() => {
-          /**
-           * TODO: Update `state` to reflect the deletion.
-           * Currently, we will not see the update until we hit firestore manually with a refresh.
-           */
-          // https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/remove
           figure.remove();
         });
     });
