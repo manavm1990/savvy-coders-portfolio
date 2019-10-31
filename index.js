@@ -34,6 +34,12 @@ function render(st = state.Home) {
   ${Footer()}
 `;
 
+  // Remove the 'mobile hidden' class from the ul
+  document.querySelector(".fa-hamburger").addEventListener("click", () => {
+    // hiddenUL.classList.remove("is-hidden--mobile");
+    document.querySelector("ul").classList.toggle("is-hidden--mobile");
+  });
+
   router.updatePageLinks();
 
   if (capitalize(router.lastRouteResolved().url.slice(1)) === "Contact") {
@@ -48,7 +54,7 @@ function render(st = state.Home) {
     // Check auth status
     auth.onAuthStateChanged(user => {
       st.isAuth = Boolean(user);
-    })
+    });
 
     // Proxy 'watches' st and reacts to changes (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy)
     pics(getProxy(st));
