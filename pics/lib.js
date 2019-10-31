@@ -110,7 +110,7 @@ export function handleCameraModal(st) {
 
     // Developer's Note: `push` will not work as it just `return`s `length` of Array
     // Wrap newPic in Array so we can use `concat()` and trigger PROXY's SET TRAP.
-    st.pics = st.pics.concat([ritePic(newPic)]);
+    st.pics = st.pics.concat([newPic]);
   });
 }
 
@@ -132,6 +132,8 @@ export function readFile(file) {
 }
 
 export function ritePic(pic) {
+
+  console.log(dbConnection.collection("pictures"))
   /**
    * Developer's Note: Since we are just using base64 URL encoded string,
    * if the pic is too big, it will error out!
