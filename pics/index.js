@@ -67,10 +67,11 @@ export default st => {
   delBtns.forEach(delBtn => {
     delBtn.addEventListener("click", function() {
       const figure = this.closest("figure");
+      const fsId = figure.dataset.id;
 
       // https://firebase.google.com/docs/firestore/manage-data/delete-data
       dbConnection
-        .doc(figure.dataset.id)
+        .doc(fsId)
         .delete()
         .then(() => {
           figure.remove();
