@@ -88,7 +88,13 @@ export function handleCameraModal(st) {
       console.log("An error occurred: " + err);
     });
 
-  document.querySelector("#take-pic").addEventListener("click", () => {
+  document.querySelector("#take-pic").addEventListener("click", event => {
+    /**
+     * Developer's Note: It is unclear exactly why there are 'multiple events' that get built up
+     * if we close out the modal, but...
+     * https://developer.mozilla.org/en-US/docs/Web/API/Event/stopImmediatePropagation
+     */
+    event.stopImmediatePropagation();
     canvas.width = video.videoWidth;
     canvas.height = video.videoHeight;
 
