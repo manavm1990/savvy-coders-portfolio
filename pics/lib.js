@@ -69,17 +69,11 @@ export function handleLoginModal() {
 
 export function handleCameraModal(st) {
   const modal = document.querySelector("#modal--camera");
-
   const video = document.querySelector("video");
   const canvas = document.querySelector("canvas");
 
   toggleModal(modal);
 
-  /**
-   * `navigator` represents the browser.
-   *
-   * `mediaDevices` is another WPI allowing interfaces with...media devices 😏
-   */
   navigator.mediaDevices
     // `getUserMedia prompts user for remission
     .getUserMedia({ video: true, audio: false })
