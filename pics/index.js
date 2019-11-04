@@ -78,6 +78,8 @@ export default st => {
         })
         .catch(err => console.error(err.message));
 
+      // Update state to remove this figure
+      st.pics = st.pics.filter(pic => pic.id !== fsId);
     });
   });
 };
