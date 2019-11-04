@@ -30,23 +30,22 @@ export default st => {
   });
 
   document.querySelector("#upload-pic").addEventListener("change", function() {
-    readFile(this.files[0])
-      .then(response => {
-        const newPic = {
-          src: response
-        };
+    readFile(this.files[0]).then(response => {
+      const newPic = {
+        src: response
+      };
 
-        /**
-         * Developer's Note: There is no `reject` to `catch`.
-         * This is b/c if there is an error,
-         * it will come from firestore, and that will just be the caption.
-         */
-        ritePic(newPic).then(updatedPic => {
-          // Developer's Note: `push` will not work as it just `return`s `length` of Array
-          // Wrap newPic in Array so we can use `concat()` and trigger PROXY's SET TRAP.
-          st.pics = st.pics.concat([updatedPic]);
-        });
-      })
+      /**
+       * Developer's Note: There is no `reject` to `catch`.
+       * This is b/c if there is an error,
+       * it will come from firestore, and that will just be the caption.
+       */
+      ritePic(newPic).then(updatedPic => {
+        // Developer's Note: `push` will not work as it just `return`s `length` of Array
+        // Wrap newPic in Array so we can use `concat()` and trigger PROXY's SET TRAP.
+        st.pics = st.pics.concat([updatedPic]);
+      });
+    });
   });
 
   document.querySelector("#url-pic").addEventListener("click", () => {
