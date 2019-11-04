@@ -117,6 +117,8 @@ export function handleCameraModal(st) {
   });
 
   // Shut off cam
+  // TODO: Monitor this for inconsistent behavior due to asynchronicity.
+  // Developer's Note: Support is a bit tenuous (https://caniuse.com/#search=transitionend)
   modal.addEventListener("transitionend", () => {
     if (modal.classList.contains("is-hiding")) {
       video.srcObject.getTracks().forEach(track => track.stop());
