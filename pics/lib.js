@@ -109,6 +109,13 @@ export function handleCameraModal(st) {
       st.pics = st.pics.concat([updatedPic]);
     });
   });
+
+  // Shut off cam
+  modal.addEventListener("transitionend", () => {
+    if (modal.classList.contains("is-hiding")) {
+      video.srcObject.getTracks().forEach(track => track.stop());
+    }
+  });
 }
 
 export function readFile(file) {
