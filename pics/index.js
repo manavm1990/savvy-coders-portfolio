@@ -75,7 +75,9 @@ export default st => {
         .delete()
         .then(() => {
           figure.remove();
-        });
+        })
+        .catch(err => console.error(err.message));
+
     });
   });
 };
