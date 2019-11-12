@@ -1,9 +1,6 @@
 {
   "extends": [
-    "stylelint-config-recommended"
-  ],
-  "plugins": ["stylelint-prettier"],
-  "rules": {
-    "prettier/prettier": true
-  }
+    "stylelint-config-recommended",
+    "stylelint-prettier/recommended"
+  ]
 }
