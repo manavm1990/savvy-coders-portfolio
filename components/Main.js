@@ -1,7 +1,7 @@
-import * as mainContent from "./mainContent";
+import * as views from "./mainContent";
 
 export default st => `
 <main>
-  ${mainContent[st.mainContent](st)}
+  ${views[st.mainContent](st)}
 </main>
 `
