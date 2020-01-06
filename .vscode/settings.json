@@ -1,29 +1,27 @@
 {
-  "files.autoSave": "onFocusChange",
+  "better-comments.highlightPlainText": true,
+  "css.validate": false,
+  "editor.accessibilitySupport": "off",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "editor.fontFamily": "'Inconsolata', Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontLigatures": true,
+  "editor.minimap.enabled": false,
+  "editor.scrollBeyondLastColumn": 2,
+  "editor.smoothScrolling": true,
   "editor.tabSize": 2,
   "editor.wordWrap": "wordWrapColumn",
   "editor.wordWrapColumn": 100,
-  "editor.accessibilitySupport": "off",
-  "editor.scrollBeyondLastColumn": 2,
-  "editor.smoothScrolling": true,
-  "editor.minimap.enabled": false,
+  "files.autoSave": "onFocusChange",
+  "files.eol": "\n",
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
+  "stylelint.enable": true,
+  "terminal.integrated.fontFamily": "'Inconsolata', monospace",
+  "workbench.colorTheme": "Night Owl (No Italics)",
   "workbench.enableExperiments": false,
-  "workbench.colorTheme": "Material",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.view.alwaysShowHeaderActions": true,
-  "terminal.integrated.fontFamily": "'Inconsolata', monospace",
-  "editor.fontFamily": "'Inconsolata', Menlo, Monaco, 'Courier New', monospace",
-  "editor.fontLigatures": true,
-  "better-comments.highlightPlainText": true,
-  "eslint.autoFixOnSave": true,
-  "stylelint.enable": true,
-  "css.validate": false,
-  "files.eol": "\n",
-  "cSpell.words": [
-    "kratohvil",
-    "patt",
-    "somedomain"
-  ]
+  "cSpell.words": ["kratohvil", "patt", "somedomain"]
 }
